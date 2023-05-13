@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style_index.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo">Livros</h1>
+            <ul class="navbar">
+                <li><a href="">Home</a></li>
+                <li><a href="">Contato</a></li>
+                <li><a href="">FJSLFS</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- banner -->
+    <div class="banner" id="banner_inicial">
+        <div class="banners">
+            <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+    
+            <img class="img_banner" src="assests/img/Man reading-amico.svg" />
+        </div>
+    </div>
+
+    <div class="botoes">
+        
+        <button class="botaozinho" id="botao_banner1" onclick="banners1()" style="background-color: white;" onmouseenter="this.style.backgroundColor='white';" onmouseleave="this.style.backgroundColor='transparent';"></button>
+        
+        <button class="botaozinho" id="botao_banner2" onclick="banners2()" style="background-color: transparent;" onmouseenter="this.style.backgroundColor='white';" onmouseleave="this.style.backgroundColor='transparent';"></button>
+        
+        <button class="botaozinho" id="botao_banner3" onclick="banners3()" style="background-color: transparent;" onmouseenter="this.style.backgroundColor='white';" onmouseleave="this.style.backgroundColor='transparent';"></button>
+        
+        <button class="botaozinho" id="botao_banner4" onclick="banners4()" style="background-color: transparent;" onmouseenter="this.style.backgroundColor='white';" onmouseleave="this.style.backgroundColor='transparent';"></button>
+    </div>
+
+    <!-- primeiro conteudo -->
+    <div class="conteudo">
+        <div class="container-conteudo">
+            <div class="imagem">
+                <div class="img"></div>
+                <div class="texto"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- segundo conteudo -->
+    <div class="conteudo2">
+        <div class="container-conteudo">
+            <div class="imagem2">
+                <div class="texto3"></div>
+                <div class="img2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- teceiro conteudo -->
+    <div class="conteudo3">
+        <div class="container-conteudo">
+            <div class="imagem3">
+                <div class="img3"></div>
+                <div class="texto3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <h4>
+                Feito com amor por um aluno SPTech &hearts; 2023/1
+            </h4>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+
+
+    function banners1(){
+
+        banner_inicial.style.backgroundColor = 'blueviolet';
+        
+        botao_banner2.style.backgroundColor = 'transparent';
+        botao_banner3.style.backgroundColor = 'transparent';
+        botao_banner4.style.backgroundColor = 'transparent';
+
+        botao_banner1.style.backgroundColor = 'white';
+        botao_banner1.onmouseleave="this.style.backgroundColor='transparent';"
+
+        banner_inicial.innerHTML = `<div class="banners">
+        <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+
+        <img class="img_banner" src="assests/img/Man reading-amico.svg" />
+    </div>`;
+    }
+
+    function banners2(){
+        
+        banner_inicial.style.backgroundColor = 'pink';
+
+        botao_banner1.style.backgroundColor = 'transparent';
+        botao_banner3.style.backgroundColor = 'transparent';
+        botao_banner4.style.backgroundColor = 'transparent';
+
+        botao_banner2.style.backgroundColor = 'white';
+        botao_banner2.onmouseleave="this.style.backgroundColor='transparent';"
+
+        banner_inicial.innerHTML = `<div class="banners">
+        <img class="img_banner" src="assests/img/Going offline-pana.svg" />
+
+        <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+
+    </div>`;
+    }
+    
+    function banners3(){
+        
+        banner_inicial.style.backgroundColor = 'purple';
+
+        botao_banner1.style.backgroundColor = 'transparent';
+        botao_banner2.style.backgroundColor = 'transparent';
+        botao_banner4.style.backgroundColor = 'transparent';
+
+        botao_banner3.style.backgroundColor = 'white';
+        botao_banner3.onmouseleave =" this.style.backgroundColor='transparent';";
+
+        banner_inicial.innerHTML = `<div class="banners">
+        
+        <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+
+        <img class="img_banner" src="assests/img/Knowledge-bro.svg" />
+
+    </div>`;
+    }
+
+    function banners4(){
+        banner_inicial.style.backgroundColor = 'gray';
+
+        botao_banner1.style.backgroundColor = 'transparent';
+        botao_banner3.style.backgroundColor = 'transparent';
+        botao_banner2.style.backgroundColor = 'transparent';
+
+        botao_banner4.style.backgroundColor = 'white';
+        botao_banner4.onmouseleave="this.style.backgroundColor='transparent';"
+
+        banner_inicial.innerHTML = `<div class="banners">
+        <img class="img_banner" src="assests/img/Bibliophile-bro.svg" />
+        
+        <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+
+    </div>`;
+    }
+
+</script>
