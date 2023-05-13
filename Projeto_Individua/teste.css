@@ -1,0 +1,33 @@
+
+#login{
+    @extend .table;
+    cursor:pointer;
+    position:relative;
+    width: 100%;
+    height: 79px;
+}
+
+    #centralizar_menu{
+        @extend .row;
+        text-align: center;
+        height: 4.8em;
+    }
+
+
+    #texto_cliente #titulo:hover{
+            display: block!Important;
+            @extend .fonte_branca_13;
+            background-color: yellow;
+        }
+    
+
+    #texto_cliente{
+        width: 100%;
+        height: 1.5em;
+        padding: 0.5em 0em;
+    }
+
+        #titulo{
+            @extend .fonte_dourado_13;
+        }
+    

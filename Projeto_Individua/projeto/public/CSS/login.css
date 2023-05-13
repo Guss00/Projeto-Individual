@@ -1,0 +1,58 @@
+.login {
+    padding-top: 7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    margin: auto;
+    display: flex;
+    width: 90%;
+    align-items: center;
+}
+
+.formulario{
+    background-color: rgb(62, 58, 58);
+    width: 70vh;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20vh;
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 10px;
+    border: 2px solid #FFA500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img{
+    height: 80vh;
+    width: 80vh;
+}
+
+
+span{
+    font-size: 1.2rem;
+    margin-bottom: -3vh;
+    color: #FFA500;
+}
+
+input{
+    width: 95%;
+    height: 4vh;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.250);
+}
+
+.btn_login{
+    border: none;
+    background-color: #FFA500;
+    width: 25vh;
+    height: 5vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.250);
+    margin-left: 20vh;
+    margin-top: 5vh;
+    cursor: pointer;
+}

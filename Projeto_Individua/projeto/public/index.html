@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/style_index.css">
-    <title>Home</title>
+    <title>Página | Home</title>
 </head>
 
 <body>
@@ -16,8 +17,8 @@
             <h1 class="titulo">Livros</h1>
             <ul class="navbar">
                 <li><a href="">Home</a></li>
-                <li><a href="">Contato</a></li>
-                <li><a href="">FJSLFS</a></li>
+                <li><a href="">Cadastro</a></li>
+                <li><a href="">Login</a></li>
             </ul>
         </div>
     </div>
@@ -25,29 +26,41 @@
     <!-- banner -->
     <div class="banner" id="banner_inicial">
         <div class="banners">
-            <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
-    
+            <span class="texto_banner">Um <b>livro</b> é a companhia perfeita para um momento relaxante e casual</span>
+
             <img class="img_banner" src="assests/img/Man reading-amico.svg" />
         </div>
     </div>
 
     <div class="botoes">
-        
-        <button class="botaozinho" id="botao_banner1" onclick="banners1()" style="background-color: white;" onmouseenter="this.style.backgroundColor='white';" onmouseleave="this.style.backgroundColor='transparent';"></button>
-        
-        <button class="botaozinho" id="botao_banner2" onclick="banners2()" style="background-color: transparent;" onmouseenter="this.style.backgroundColor='white';" onmouseleave="this.style.backgroundColor='transparent';"></button>
-        
-        <button class="botaozinho" id="botao_banner3" onclick="banners3()" style="background-color: transparent;" onmouseenter="this.style.backgroundColor='white';" onmouseleave="this.style.backgroundColor='transparent';"></button>
-        
-        <button class="botaozinho" id="botao_banner4" onclick="banners4()" style="background-color: transparent;" onmouseenter="this.style.backgroundColor='white';" onmouseleave="this.style.backgroundColor='transparent';"></button>
+
+        <button class="botaozinho" id="botao_banner1" onclick="banners1()"></button>
+
+        <button class="botaozinho" id="botao_banner2" onclick="banners2()"></button>
+
+        <button class="botaozinho" id="botao_banner3" onclick="banners3()"></button>
+
+        <button class="botaozinho" id="botao_banner4" onclick="banners4()"></button>
     </div>
 
     <!-- primeiro conteudo -->
     <div class="conteudo">
         <div class="container-conteudo">
             <div class="imagem">
-                <div class="img"></div>
-                <div class="texto"></div>
+                <div class="img">
+                    <img src="assests/img/a_menina_que_roubava_livros.jpg" alt="">
+                </div>
+                <div class="barrinha"></div>
+                <div class="texto">
+                    <span>
+                        Quero compartilhar minha opinião sobre o livro "A Menina que Roubava Livros", de Markus
+                        Zusak. A história é contada do ponto de vista da Morte e acompanha a vida de Liesel Meminger,
+                        uma jovem que rouba livros para escapar dos horrores da Segunda Guerra Mundial. O livro é
+                        emocionante, com personagens complexos e uma narrativa poderosa que prende o leitor do início ao
+                        fim. Recomendo esse livro para quem gosta de histórias emocionantes, com um toque de aventura e
+                        muita reflexão.
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -56,8 +69,15 @@
     <div class="conteudo2">
         <div class="container-conteudo">
             <div class="imagem2">
-                <div class="texto3"></div>
-                <div class="img2"></div>
+                <div class="texto2">
+                    <span>
+                        A literatura é composta por diversos gêneros literários, cada um com suas características e particularidades. O romance é conhecido por suas histórias de amor e conflitos pessoais, enquanto a ficção científica explora mundos imaginários e tecnologias futurísticas. Já o thriller é um gênero de suspense com mistérios a serem resolvidos. A escolha do gênero certo pode influenciar a conexão do leitor com a história e os personagens, e é importante explorar diferentes gêneros para descobrir novas perspectivas e ideias.
+                    </span>
+                </div>
+                <div class="barrinha"></div>
+                <div class="img2">
+                    <img src="assests/img/generos literarios.jpg" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -66,8 +86,51 @@
     <div class="conteudo3">
         <div class="container-conteudo">
             <div class="imagem3">
-                <div class="img3"></div>
-                <div class="texto3"></div>
+                <div class="img3">
+                    <img src="assests/img/stephen-king-gq.webp" alt="">
+                </div>
+                <div class="barrinha"></div>
+                <div class="texto3">
+                    <span>
+                        Stephen King é um dos autores mais populares da atualidade, conhecido por seus livros de terror e suspense. King já publicou mais de 60 livros, incluindo "O Iluminado", "Carrie, a Estranha" e "It: A Coisa". Seu estilo de escrita é cativante e envolvente, com personagens complexos e uma narrativa envolvente. Para quem gosta de histórias de terror, Stephen King é uma escolha certa.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quarto conteudo -->
+    <div class="conteudo4">
+        <div class="container-conteudo">
+            <div class="imagem4">
+                <div class="texto4">
+                    <span>
+                        Você sabia que "Harry Potter e a Pedra Filosofal" completa 24 anos de lançamento em 2023? A saga de J.K. Rowling é uma das mais famosas da literatura infanto-juvenil e continua atraindo novos leitores todos os anos. Além disso, o filme "O Hobbit", baseado no livro de J.R.R. Tolkien, estreia em breve nos cinemas, trazendo de volta o mundo fantástico de "O Senhor dos Anéis".
+                    </span>
+                </div>
+                <div class="barrinha"></div>
+                <div class="img4">
+                    <img src="assests/img/Harry-Potter-Logo-2001-2002.jpg" alt="">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Quinto Conteudo -->
+
+    <div class="conteudo5">
+        <div class="container-conteudo">
+            <div class="imagem5">
+                <div class="img5">
+                    <img src="assests/img/pessoa-aproveitando-o-tempo-relaxante-em-casa.jpg" alt="">
+                </div>
+                <div class="barrinha"></div>
+                <div class="texto5">
+                    <span>
+                        Encontrar tempo para a leitura pode ser difícil, mas há estratégias que podem ajudar. Uma delas é reservar um horário específico do dia para ler, seja antes de dormir ou de manhã cedo. Também é importante escolher livros que você realmente goste e que sejam adequados ao seu nível de leitura. Se você está começando, escolha livros mais curtos ou voltados para o público jovem. Se você é um leitor experiente, pode se desafiar com livros mais complexos. É essencial encontrar um equilíbrio entre desafiar-se e desfrutar da leitura. <br> <b> Lembre-se:</b> a leitura é um hábito que se desenvolve com a prática, então comece gradualmente e aumente seu tempo de leitura aos poucos.
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -85,82 +148,59 @@
 </html>
 
 <script>
+    function banners1() {
 
+        //banner_inicial.style.backgroundColor = '#800080';
 
-
-    function banners1(){
-
-        banner_inicial.style.backgroundColor = 'blueviolet';
-        
-        botao_banner2.style.backgroundColor = 'transparent';
-        botao_banner3.style.backgroundColor = 'transparent';
-        botao_banner4.style.backgroundColor = 'transparent';
-
-        botao_banner1.style.backgroundColor = 'white';
-        botao_banner1.onmouseleave="this.style.backgroundColor='transparent';"
+        //botao_banner1.style.backgroundColor = 'white';
 
         banner_inicial.innerHTML = `<div class="banners">
-        <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+        <span class="texto_banner">Um <b> livro </b>é a companhia perfeita para um momento relaxante e casual</span>
 
         <img class="img_banner" src="assests/img/Man reading-amico.svg" />
     </div>`;
     }
 
-    function banners2(){
-        
-        banner_inicial.style.backgroundColor = 'pink';
+    function banners2() {
 
-        botao_banner1.style.backgroundColor = 'transparent';
-        botao_banner3.style.backgroundColor = 'transparent';
-        botao_banner4.style.backgroundColor = 'transparent';
+        //banner_inicial.style.backgroundColor = '#800080';
 
-        botao_banner2.style.backgroundColor = 'white';
-        botao_banner2.onmouseleave="this.style.backgroundColor='transparent';"
+        //botao_banner2.style.backgroundColor = 'white';
+
 
         banner_inicial.innerHTML = `<div class="banners">
         <img class="img_banner" src="assests/img/Going offline-pana.svg" />
 
-        <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+        <span class="texto_banner">Nada melhor do que terminar o dia com um bom <b> livro </b> e deixar a mente viajar para outros mundos</span>
 
     </div>`;
     }
-    
-    function banners3(){
-        
-        banner_inicial.style.backgroundColor = 'purple';
 
-        botao_banner1.style.backgroundColor = 'transparent';
-        botao_banner2.style.backgroundColor = 'transparent';
-        botao_banner4.style.backgroundColor = 'transparent';
+    function banners3() {
 
-        botao_banner3.style.backgroundColor = 'white';
-        botao_banner3.onmouseleave =" this.style.backgroundColor='transparent';";
+        //banner_inicial.style.backgroundColor = '#800080';
+
+        //botao_banner3.style.backgroundColor = 'white';
 
         banner_inicial.innerHTML = `<div class="banners">
         
-        <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+        <span class="texto_banner">A leitura é uma das melhores maneiras de satisfazer a curiosidade e saciar a fome de conhecimento. Abra um <b> livro </b> e explore um mundo novo!</span>
 
         <img class="img_banner" src="assests/img/Knowledge-bro.svg" />
 
     </div>`;
     }
 
-    function banners4(){
-        banner_inicial.style.backgroundColor = 'gray';
+    function banners4() {
+        //banner_inicial.style.backgroundColor = '#800080';
 
-        botao_banner1.style.backgroundColor = 'transparent';
-        botao_banner3.style.backgroundColor = 'transparent';
-        botao_banner2.style.backgroundColor = 'transparent';
-
-        botao_banner4.style.backgroundColor = 'white';
-        botao_banner4.onmouseleave="this.style.backgroundColor='transparent';"
+        //botao_banner4.style.backgroundColor = 'white';
 
         banner_inicial.innerHTML = `<div class="banners">
         <img class="img_banner" src="assests/img/Bibliophile-bro.svg" />
         
-        <span class="texto_banner">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet rerum necessitatibus deserunt, doloribus tempore repellat impedit beatae reprehenderit molestias in sapiente quidem, earum, rem veniam? Atque voluptatem optio vitae iure.</span>
+        <span class="texto_banner">Um <b> livro </b> é como um passaporte para viagens incríveis pela imaginação. Abra-o e comece a sua aventura!</span>
 
     </div>`;
     }
-
 </script>

@@ -1,0 +1,71 @@
+.cadastro {
+    padding-top: 7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    margin: auto;
+    display: flex;
+    width: 90%;
+}
+
+.formulario{
+    background-color: rgb(62, 58, 58);
+    width: 70vh;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20vh;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #FFA500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+span{
+    font-size: 1.2rem;
+    margin-bottom: -3vh;
+    color: #FFA500;
+}
+
+input{
+    width: 95%;
+    height: 3vh;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.250);
+}
+
+h3{
+    font-size: 1.2rem;
+    color: #FFA500;
+}
+
+select {
+    width: 22vh;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.250);
+}
+
+.formulario .selecao {
+    flex-direction: column;
+    margin-bottom: 5vh;
+}
+
+.btn_cadastro{
+    border: none;
+    background-color: #FFA500;
+    width: 25vh;
+    height: 5vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.250);
+    margin-left: 22vh;
+    cursor: pointer;
+}
+
+img{
+    height: 80vh;
+    width: 80vh;
+}
