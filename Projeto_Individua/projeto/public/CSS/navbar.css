@@ -2,7 +2,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {
+body{
     margin: 0;
     padding: 0;
 }
@@ -15,7 +15,8 @@ body {
 }
 
 .header:hover {
-    background-color: rgb(41, 40, 40);
+    /* background-color: rgb(41, 40, 40); */
+    height: 16vh;
 }
 
 /* Header */
@@ -35,6 +36,11 @@ body {
     font-weight: 500;
 }
 
+.titulo img{
+    height: 15vh;
+    width: 15vh;
+}
+
 .navbar {
     display: flex;
     width: 300px;
@@ -45,6 +51,7 @@ body {
 
 .navbar li,
 .navbar a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #FFA500;
     text-decoration: none;
 }
@@ -61,7 +68,12 @@ body {
 }
 
 .footer .container {
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
+}
+
+.footer img{
+    height: 14vh;
+    width: 15vh;
 }
