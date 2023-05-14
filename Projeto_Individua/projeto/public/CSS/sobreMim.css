@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Banner */
+.banner {
+    background-color: aquamarine;
+    height: 35em;
+    width: 100%;
+    margin-bottom: 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    background-color:  rgb(62, 58, 58);
+    height: 35em;
+    width: 30em;
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    margin-top: 6em;
+    margin-left: 2em;
+    height: 20em;
+    width: 20em;
+}
+
+.foto{
+    background-color: darkmagenta;
+    height: 19em;
+    width: 20em;
+    margin-left: -5em;
+    border-left: 3px solid #FFA500;
+}
+
+.sobreMim{
+    background-color: darkslateblue;
+    height: 35em;
+    width: 40em;
+}
+
+.textinho{
+    background-color: blue;
+    height: 28em;
+    width: 22em;
+    margin-top: -28em;
+    margin-left: 18em;
+}
+
+/* .textinho span{
+    
+} */
+
+.apresentacao{
+    background-color: chartreuse;
+    height: 5em;
+    width: 28em;
+    margin-left: -9em;
+    margin-top: 6em;
+    display: flex;
+    align-items: center;
+}
+
+.apresentacao span{
+    font-size: 1.4em;
+}
+
+.curso{
+    background-color: darkgrey;
+    height: 5em;
+    width: 28em;
+    margin-left: -9em;
+    display: flex;
+    align-items: center;
+}
+
+.curso span{
+    font-size: 1.4em;
+    text-align: center;
+}
+
+/* Valores */
+.valores {
+    background-color: blueviolet;
+    height: 22em;
+    width: 100%;
+    display: flex;
+    margin-bottom: 3em;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+/* Primeiro Valor */
+.valor1 {
+    background-color: coral;
+    height: 20em;
+    width: 15em;
+    border: 3px solid #FFA500;
+    border-radius: 0.5em;
+    box-shadow: 0.5em 0.3em 0.4em rgba(0, 0, 0, 0.250);
+    display: flex;
+    flex-direction: column;
+}
+
+.valor1 img{
+    background-color: azure;
+    height: 8em;
+    width: 8em;
+    margin-left: 3.5em;
+    margin-bottom: 1em;
+}
+
+.valor1 span{
+    background-color: blue;
+    height: 11em;
+    width: 100%;
+}
+
+/* Segundo Valor */
+.valor2 {
+    background-color: red;
+    height: 20em;
+    width: 15em;
+    border: 3px solid #FFA500;
+    border-radius: 0.5em;
+    box-shadow: 0.5em 0.3em 0.4em rgba(0, 0, 0, 0.250);
+    display: flex;
+    flex-direction: column;
+}
+
+.valor2 img{
+    background-color: azure;
+    height: 8em;
+    width: 8em;
+    margin-left: 3.5em;
+    margin-bottom: 1em;
+}
+
+.valor2 span{
+    background-color: blue;
+    height: 11em;
+    width: 100%;
+}
+
+/* Terceiro Valor */
+.valor3 {
+    background-color: brown;
+    height: 20em;
+    width: 15em;
+    border: 3px solid #FFA500;
+    border-radius: 0.5em;
+    box-shadow: 0.5em 0.3em 0.4em rgba(0, 0, 0, 0.250);
+    display: flex;
+    flex-direction: column;
+}
+
+.valor3 img{
+    background-color: azure;
+    height: 8em;
+    width: 8em;
+    margin-left: 3.5em;
+    margin-bottom: 1em;
+}
+
+.valor3 span{
+    background-color: blue;
+    height: 11em;
+    width: 100%;
+}
+
+/* Conteudo da pagina */
+.conteudo{
+    background-color: cornflowerblue;
+    height: 20em;
+    width: 100%;
+    margin-bottom: 3em;
+    display: flex;
+}
+
+/* Primeiro conteudo */
+.imagem{
+    background-color: darkorange;
+    height: 18em;
+    width: 20em;
+    border-radius: 0.5em;
+}
+
+.texto{
+    background-color: darkgreen;
+    height: 18em;
+    width: 40em;
+    border-radius: 0.5em;
+}
+
+/* Segundo Conteudo */
+.imagem2{
+    background-color: darkorange;
+    height: 18em;
+    width: 20em;
+    border-radius: 0.5em;
+}
+
+.texto2{
+    background-color: darkgreen;
+    height: 18em;
+    width: 40em;
+    border-radius: 0.5em;
+}
+
+/* Terceiro Conteudo */
+.imagem3{
+    background-color: darkorange;
+    height: 18em;
+    width: 20em;
+    border-radius: 0.5em;
+}
+
+.texto3{
+    background-color: darkgreen;
+    height: 18em;
+    width: 40em;
+    border-radius: 0.5em;
+}

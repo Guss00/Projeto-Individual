@@ -54,6 +54,11 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #FFA500;
     text-decoration: none;
+    margin-left: -3rem;
+}
+
+.navbar ul{
+    padding: 0;
 }
 
 /* Footer */
