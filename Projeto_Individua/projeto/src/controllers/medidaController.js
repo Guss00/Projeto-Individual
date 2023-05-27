@@ -1,22 +1,52 @@
-function buscarMedidasEmTempoReal(req, res) {
+const medidaModel = require("../models/medidaModel");
 
-    var idAquario = req.params.idAquario;
+function quantidadeTotal(req, res) {
+  medidaModel.buscarQuantidadeDePostagens()
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      console.log("Erro ao buscar a quantidade total de postagens:", error);
+      res.sendStatus(500);
+    });
+}
 
-    console.log(`Recuperando medidas em tempo real`);
+function criticas(req, res) {
+  medidaModel.buscarQuantidadeDePostagensCriticas()
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      console.log("Erro ao buscar a quantidade de postagens críticas:", error);
+      res.sendStatus(500);
+    });
+}
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
+function recomendacao(req, res) {
+  medidaModel.buscarQuantidadeDePostagensRecomendacao()
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      console.log("Erro ao buscar a quantidade de postagens de recomendação:", error);
+      res.sendStatus(500);
+    });
+}
+
+function outros(req, res) {
+  medidaModel.buscarQuantidadeDePostagensOutros()
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      console.log("Erro ao buscar a quantidade de postagens de outros:", error);
+      res.sendStatus(500);
     });
 }
 
 module.exports = {
-    buscarMedidasEmTempoReal
-}
+  quantidadeTotal,
+  criticas,
+  recomendacao,
+  outros
+};

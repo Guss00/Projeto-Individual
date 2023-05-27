@@ -14,9 +14,7 @@ genero3 VARCHAR(30)
 CREATE TABLE biblioteca(
 idLivro INT PRIMARY KEY auto_increment,
 nome VARCHAR(45),
-genero1 VARCHAR(30),
-genero2 VARCHAR(30),
-genero3 VARCHAR(30),
+genero VARCHAR(50),
 fkUsuario INT,
 CONSTRAINT fkUsuario FOREIGN KEY(fkUsuario) REFERENCES usuario(idUsuario)
 );

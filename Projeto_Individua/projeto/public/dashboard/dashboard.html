@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaTech | Dashboards</title>
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/dashboards.css">
+    <!-- <script src="../js/funcoes.js"></script>
+    <script src="./alerta.js"></script> -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- scripts do Chart.js - 2022-1 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!--FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- <body onload=" atualizarFeed()"> -->
+
+<body>
+
+    <div class="janela">
+        <div class="header-left">
+            <h1>AquaTech</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./cards.html">
+                    <h3>Aquários</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+
+                <h3>Gráficos</h3>
+
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3>Mural de Avisos</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="dash">
+            <div id="alerta">
+            </div>
+
+            <div class="btns-dash">
+                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+                <button class="btn-chart btn-pink" onclick="exibirAquario(1)" id="btnAquario1">Aquario 1</button>
+                <button class="btn-chart btn-white" onclick="exibirAquario(2)" id="btnAquario2">Aquario 2</button>
+                <button class="btn-chart btn-white" onclick="exibirAquario(3)" id="btnAquario3">Aquario 3</button>
+                <button class="btn-chart btn-white" onclick="exibirAquario(4)" id="btnAquario4">Aquario 4</button>
+            </div>
+            <div id="graficos">
+                <div id="grafico1" class="display-block">
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario1">123</span>
+                    </h3>
+                    <div class="graph">
+                        <canvas id="myChartCanvas1"></canvas>
+                    </div>
+                    <div class="label-captura">
+                        <p id="avisoCaptura1" style="color: white"></p>
+                    </div>
+                </div>
+
+                <div id="grafico2" class="display-none">
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario2"></span>
+                    </h3>
+                    <div class="graph">
+                        <canvas id="myChartCanvas2"></canvas>
+                    </div>
+                    <div class="label-captura">
+                        <p id="avisoCaptura2" style="color: white"></p>
+                    </div>
+                </div>
+
+                <div id="grafico3" class="display-none">
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario3"></span>
+                    </h3>
+                    <div class="graph">
+                        <canvas id="myChartCanvas3"></canvas>
+                    </div>
+                    <div class="label-captura">
+                        <p id="avisoCaptura3" style="color: white"></p>
+                    </div>
+                </div>
+
+                <div id="grafico4" class="display-none">
+                    <h3 class="tituloGraficos">
+                        <span id="tituloAquario4"></span>
+                    </h3>
+                    <div class="graph">
+                        <canvas id="myChartCanvas4"></canvas>
+                    </div>
+                    <div class="label-captura">
+                        <p id="avisoCaptura4" style="color: white"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="grafico-fluxo-setores">
+        <section>
+          <canvas id="chaveTeste" style="width: 71rem; height: 18rem"></canvas>
+        </section>
+  
+        <div id="avisoCaptura" class="avisoCaptura"></div>
+      </div>
+
+
+</body>
+
+</html>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    window.onload = obterDadosGraficos();
+
+    // const testefk = 1;
+
+let proximaAtualizacao;
+
+window.onload = obterDadosGraficos();
+
+function obterDadosGraficos() {
+  obterDadosGrafico(1);
+  // obterDadosGrafico()
+}
+
+function obterDadosGrafico() {
+  if (proximaAtualizacao != undefined) {
+    clearTimeout(proximaAtualizacao);
+  }
+
+  fetch(`/medidas/ultimas/`, { cache: "no-store" })
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          resposta.reverse();
+
+          plotarGrafico(resposta);
+        });
+      } else {
+        console.error("Nenhum dado encontrado ou erro na API");
+      }
+    })
+    .catch(function (error) {
+      console.error(
+        `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+      );
+    });
+}
+
+function plotarGrafico(resposta) {
+  console.log("Iniciando plotagem do gráfico...");
+
+  // Criando estrutura para plotar gráfico - labels
+  let labels = [];
+  let dados = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Padaria",
+        data: [],
+        fill: false,
+        borderWidth: 1,
+        backgroundColor: "rgba(184,134,11)",
+        tension: 0.1,
+      },
+      // linha 2
+    //   {
+    //     label: "Açougue",
+    //     data: [210, 745, 140, 1005, 758, 140, 69, 210, 630],
+    //     borderWidth: 1,
+    //     backgroundColor: "rgba(205,92,92)",
+    //   },
+
+    //   // linha 3
+    //   {
+    //     label: "Bebidas",
+    //     data: [701, 643, 222, 550, 345, 779, 162, 20, 90],
+    //     borderWidth: 1,
+    //     backgroundColor: "rgba(135,206,250)",
+    //   },
+    //   // linha 3
+    //   {
+    //     label: "Higiene",
+    //     data: [600, 220, 100, 180, 1000, 12, 35, 64, 34],
+    //     borderWidth: 1,
+    //     backgroundColor: "rgba(119,136,153)",
+    //   },
+    //   // linha 3
+    //   {
+    //     label: "Confeitaria",
+    //     data: [200, 510, 452, 965, 74, 324, 466, 741, 254],
+    //     borderWidth: 1,
+    //     backgroundColor: "rgba(188,143,143)",
+    //   },
+    //   // linha 3
+    //   {
+    //     label: "Limpeza",
+    //     data: [500, 650, 254, 20, 34, 745, 125, 225, 210],
+    //     borderWidth: 1,
+    //     backgroundColor: "rgba(238,232,170)",
+    //   },
+    //   // linha 3
+    //   {
+    //     label: "Bolachas",
+    //     data: [210, 10, 254, 100, 788, 324, 147, 189, 452],
+    //     borderWidth: 1,
+    //     backgroundColor: "rgba(139,0,139)",
+    //   },
+    ],
+  };
+
+  console.log("----------------------------------------------");
+  console.log(
+    'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+  );
+  console.log(resposta);
+
+  // Inserindo valores recebidos em estrutura para plotar o gráfico
+
+  for (let i = resposta.length - 1; i >= 0; i--) {
+    var registro = resposta[i];
+
+    labels.push(registro.momento_grafico);
+
+    console.log(registro.totalCaptacao);
+
+    dados.datasets[0].data.push(registro.totalCaptacao * 100);
+  }
+
+  console.log("----------------------------------------------");
+  console.log("O gráfico será plotado com os respectivos valores:");
+  console.log("Labels:");
+  console.log(labels);
+  console.log("Dados:");
+  console.log(dados.datasets);
+  console.log("----------------------------------------------");
+
+  // Criando estrutura para plotar gráfico - config
+  const config = {
+    type: "bar",
+    data: dados,
+    options: {
+      tooltips: {
+        bodyFontStyle: "bold",
+        callbacks: {
+          label: function (tooltipItem, data) {
+            var value =
+              data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            var label = data.labels[tooltipItem.index];
+            var message = "";
+
+            if (value >= 420 && value <= 630) {
+              message = "Fluxo Ideal";
+            } else if (value > 209 && value < 420) {
+              message = "Fluxo em Alerta";
+            } else if (value > 630 && value < 841) {
+              message = "Fluxo em Alerta";
+            } else if (value >= 100 && value <= 210) {
+              message = "Fluxo Emergencial";
+            } else if (value >= 840 && value <= 1000) {
+              message = "Fluxo Emergencial";
+            } else if (value >= 0 && value < 100) {
+              message = "Fluxo Crítico";
+            } else if (value >= 1001) {
+              message = "Fluxo Crítico";
+            }
+
+            return `Hora ${label}: Fluxo de ${value} - ${message}`;
+          },
+        },
+      },
+      legend: {
+        labels: {
+          fontColor: "white",
+        },
+      },
+    },
+  };
+
+  // Adicionando gráfico criado em div na tela
+  let myChart = new Chart(document.getElementById(`chaveTeste`), config);
+
+  setTimeout(() => atualizarGrafico(testefk, dados, myChart), 2000);
+}
+
+function atualizarGrafico(testefk, dados, myChart) {
+  fetch(`/medidas/tempo-real/${testefk}`, { cache: "no-store" })
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (novoRegistro) {
+          console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+
+          console.log(`Dados atuais do gráfico:`);
+          console.log(dados);
+
+          let avisoCaptura = document.getElementById(
+            `avisoCaptura`
+          );
+          avisoCaptura.innerHTML = "";
+
+          if (
+            novoRegistro[0].momento_grafico ==
+            dados.labels[dados.labels.length - 1]
+          ) {
+            console.log(
+              "---------------------------------------------------------------"
+            );
+            console.log(
+              "Como não há dados novos para captura, o gráfico não será atualizado."
+            );
+            avisoCaptura.innerHTML =
+              "<i class='fa-solid fa-triangle-exclamation' style='color: #fffff;';></i> Foi trazido o dado mais atual capturado pelo sensor. Como não há novos dados a exibir, o gráfico não será atualizado.";
+            console.log("Horário do novo dado capturado:");
+            console.log(novoRegistro[0].momento_grafico);
+            console.log("Horário do último dado capturado:");
+            console.log(dados.labels[dados.labels.length - 1]);
+            console.log(
+              "---------------------------------------------------------------"
+            );
+          } else {
+            // Atualizar valores do gráfico
+            dados.labels.shift();
+            dados.labels.push(novoRegistro[0].momento_grafico);
+
+            // var valorAtual = atualizarSetor(novoRegistro[0].totalCaptacao);
+            console.log(dados.datasets);
+            dados.datasets[0].data.shift();
+
+            // gerar numero aleatorio para simulação
+            var max = 1200;
+            var min = 50;
+            var intervalo = 1 + max - min;
+
+            var aleatorio = parseInt(Math.random() * intervalo + min);
+
+
+            dados.datasets[0].data.push(novoRegistro[0].totalCaptacao * aleatorio);
+
+            console.log(dados + "aqui as labels");
+
+            myChart.update();
+          }
+
+
+          proximaAtualizacao = setTimeout(
+            () => atualizarGrafico(testefk, dados, myChart),
+            5000
+          );
+        });
+      } else {
+        console.error("Nenhum dado encontrado ou erro na API");
+        proximaAtualizacao = setTimeout(
+          () => atualizarGrafico(testefk, dados, myChart),
+          2000
+        );
+      }
+    })
+    .catch(function (error) {
+      console.error(
+        `Erro na obtenção dos dados para o gráfico: ${error.message}`
+      );
+    });
+}
+</script>

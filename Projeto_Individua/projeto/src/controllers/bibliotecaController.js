@@ -76,7 +76,7 @@ function publicar(req, res) {
     if (nome == undefined) {
         res.status(400).send("O título está indefinido!");
     } else if (genero == undefined) {
-        res.status(400).send("A descrição está indefinido!");
+        res.status(400).send("O gênero está indefinido!");
     } else if (fkUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {

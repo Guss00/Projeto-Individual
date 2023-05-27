@@ -68,16 +68,19 @@ function pesquisarDescricao(req, res) {
 function publicar(req, res) {
     var titulo = req.body.titulo;
     var descricao = req.body.descricao;
+    var tipo = req.body.tipo;
     var idUsuario = req.params.idUsuario;
 
     if (titulo == undefined) {
         res.status(400).send("O título está indefinido!");
     } else if (descricao == undefined) {
         res.status(400).send("A descrição está indefinido!");
+    } else if(tipo == undefined){
+        res.status(403).send("O tipo da publicação esta indefinido")
     } else if (idUsuario == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        avisoModel.publicar(titulo, descricao, tipo, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -95,9 +98,11 @@ function publicar(req, res) {
 
 function editar(req, res) {
     var novaDescricao = req.body.descricao;
-    var idAviso = req.params.idAviso;
+    var titulo = req.body.titulo;
+    var tipo = req.body.tipo;
+    var idPostagem = req.params.idPostagem;
 
-    avisoModel.editar(novaDescricao, idAviso)
+    avisoModel.editar(novaDescricao, titulo, tipo, idPostagem)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -114,9 +119,9 @@ function editar(req, res) {
 }
 
 function deletar(req, res) {
-    var idAviso = req.params.idAviso;
+    var idPostagem = req.params.idPostagem;
 
-    avisoModel.deletar(idAviso)
+    avisoModel.deletar(idPostagem)
         .then(
             function (resultado) {
                 res.json(resultado);
