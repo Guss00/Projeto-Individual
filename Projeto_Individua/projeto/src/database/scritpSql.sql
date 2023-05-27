@@ -11,3 +11,21 @@ genero2 VARCHAR(30),
 genero3 VARCHAR(30)
 );
 
+CREATE TABLE biblioteca(
+idLivro INT PRIMARY KEY auto_increment,
+nome VARCHAR(45),
+genero1 VARCHAR(30),
+genero2 VARCHAR(30),
+genero3 VARCHAR(30),
+fkUsuario INT,
+CONSTRAINT fkUsuario FOREIGN KEY(fkUsuario) REFERENCES usuario(idUsuario)
+);
+
+CREATE TABLE comunidade (
+idPostagem INT PRIMARY KEY,
+titulo VARCHAR(45),
+tipo VARCHAR(30),
+descricao VARCHAR(250),
+fkUsuario INT,
+CONSTRAINT fkUsuarios FOREIGN KEY(fkUsuario) REFERENCES usuario(idUsuario)
+);

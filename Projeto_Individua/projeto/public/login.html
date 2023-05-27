@@ -18,10 +18,10 @@
                 <img src="assests/img/Logo.jpeg" alt="">
             </div>
             <ul class="navbar">
-                <li><a href="">Home</a></li>
-                <li><a href="">Sobre Mim</a></li>
-                <li><a href="">Cadastro</a></li>
-                <li><a href="">Login</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobreMim.html">Sobre Mim</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
             </ul>
         </div>
     </div>
@@ -60,23 +60,24 @@
 </html>
 
 <script>
-    function entrar() {
-        aguardar();
+    function Entrar() {
+        // aguardar();
 
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+        if (email == "" || senha == "") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
             return false;
-        } else {
-            setInterval(sumirMensagem, 5000)
-        }
+        } 
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -84,8 +85,8 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                emailServer: email,
+                senhaServer: senha
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -99,15 +100,15 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome_completo;
-                    sessionStorage.ID_USUARIO_USUARIO = json.idUsuario;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.GENERO1_USUARIO = json.genero1;
                     sessionStorage.GENERO2_USUARIO = json.genero2;
                     sessionStorage.GENERO3_USUARIO = json.genero3;
 
 
-                    // setTimeout(function () {
-                    //     window.location = "./dashboard/cards.html";
-                    // }, 1000); // apenas para exibir o loading
+                    setTimeout(function () {
+                        window.location = "/dashboard/biblioteca.html";
+                    }, 1000); // apenas para exibir o loading
 
                 });
 
@@ -117,7 +118,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    // finalizarAguardar(texto);
                 });
             }
 
@@ -128,7 +129,7 @@
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
 </script>

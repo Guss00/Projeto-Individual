@@ -8,7 +8,8 @@ function testar(req, res) {
 }
 
 function listar(req, res) {
-    usuarioModel.listar()
+    var idUsurario = sessionStorage.ID_USUARIO;
+    usuarioModel.listar(idUsurario)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -104,9 +105,73 @@ function cadastrar(req, res) {
     }
 }
 
+function adicionar(req, res){
+    var nomeLivro = req.body.nomeLivroServer;
+    var genero1 = req.body.genero1Server;
+    var fkUsuario = req.body.fkUsuarioServer;
+    
+    // Faça as validações dos valores
+    if (nomeLivro == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    }else if (fkUsuario == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else if (genero1 == undefined){
+        res.status(400).send("O primeiro genero está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.adicionar(nomeLivro, genero1, fkUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao inserir o Livro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function remover(req, res){
+    var nomedoLivro = req.body.nomeDoLivroServer;
+    var fkUsuario = req.body.fkUsuarioServer;
+    
+    // Faça as validações dos valores
+    if (nomedoLivro == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    }else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.remover(nomedoLivro, fkUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao remover o Livro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    adicionar,
+    remover
 }

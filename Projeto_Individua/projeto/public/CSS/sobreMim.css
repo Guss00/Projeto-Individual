@@ -6,9 +6,9 @@ body {
 /* Banner */
 .banner {
     background-color: aquamarine;
-    height: 35em;
+    height: 70vh;
     width: 100%;
-    margin-bottom: 3em;
+    margin-bottom: 6vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,39 +16,39 @@ body {
 
 .logo{
     background-color:  rgb(62, 58, 58);
-    height: 35em;
-    width: 30em;
+    height: 70vh;
+    width: 60vh;
     display: flex;
     align-items: center;
 }
 
 .logo img{
-    margin-top: 6em;
-    margin-left: 2em;
-    height: 20em;
-    width: 20em;
+    margin-top: 12vh;
+    margin-left: 4vh;
+    height: 40vh;
+    width: 40vh;
 }
 
 .foto{
     background-color: darkmagenta;
-    height: 19em;
-    width: 20em;
-    margin-left: -5em;
-    border-left: 3px solid #FFA500;
+    height: 38vh;
+    width: 40vh;
+    margin-left: -10vh;
+    border-left: 6px solid #FFA500;
 }
 
 .sobreMim{
     background-color: darkslateblue;
-    height: 35em;
-    width: 40em;
+    height: 70vh;
+    width: 80vh;
 }
 
 .textinho{
     background-color: blue;
-    height: 28em;
-    width: 22em;
-    margin-top: -28em;
-    margin-left: 18em;
+    height: 56vh;
+    width: 44vh;
+    margin-top: -56vh;
+    margin-left: 36vh;
 }
 
 /* .textinho span{
@@ -57,39 +57,39 @@ body {
 
 .apresentacao{
     background-color: chartreuse;
-    height: 5em;
-    width: 28em;
-    margin-left: -9em;
-    margin-top: 6em;
+    height: 10vh;
+    width: 56vh;
+    margin-left: -18vh;
+    margin-top: 12vh;
     display: flex;
     align-items: center;
 }
 
 .apresentacao span{
-    font-size: 1.4em;
+    font-size: 2vh;
 }
 
 .curso{
     background-color: darkgrey;
-    height: 5em;
-    width: 28em;
-    margin-left: -9em;
+    height: 10vh;
+    width: 56vh;
+    margin-left: -18vh;
     display: flex;
     align-items: center;
 }
 
 .curso span{
-    font-size: 1.4em;
+    font-size: 1.6em;
     text-align: center;
 }
 
 /* Valores */
 .valores {
     background-color: blueviolet;
-    height: 22em;
+    height: 55vh;
     width: 100%;
     display: flex;
-    margin-bottom: 3em;
+    margin-bottom: 6vh;
 }
 
 .container {
@@ -102,131 +102,131 @@ body {
 /* Primeiro Valor */
 .valor1 {
     background-color: coral;
-    height: 20em;
-    width: 15em;
+    height: 50vh;
+    width: 40vh;
     border: 3px solid #FFA500;
-    border-radius: 0.5em;
-    box-shadow: 0.5em 0.3em 0.4em rgba(0, 0, 0, 0.250);
+    border-radius: 1vh;
+    box-shadow: 1vh 0.6vh 0.8vh rgba(0, 0, 0, 0.250);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .valor1 img{
     background-color: azure;
-    height: 8em;
-    width: 8em;
-    margin-left: 3.5em;
-    margin-bottom: 1em;
+    height: 20vh;
+    width: 20vh;
+    margin-bottom: 2vh;
 }
 
 .valor1 span{
     background-color: blue;
-    height: 11em;
+    height: 30vh;
     width: 100%;
 }
 
 /* Segundo Valor */
 .valor2 {
     background-color: red;
-    height: 20em;
-    width: 15em;
+    height: 50vh;
+    width: 40vh;
     border: 3px solid #FFA500;
-    border-radius: 0.5em;
-    box-shadow: 0.5em 0.3em 0.4em rgba(0, 0, 0, 0.250);
+    border-radius: 1vh;
+    box-shadow: 1vh 0.6vh 0.8vh rgba(0, 0, 0, 0.250);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .valor2 img{
     background-color: azure;
-    height: 8em;
-    width: 8em;
-    margin-left: 3.5em;
-    margin-bottom: 1em;
+    height: 20vh;
+    width: 20vh;
+    margin-bottom: 2vh;
 }
 
 .valor2 span{
     background-color: blue;
-    height: 11em;
+    height: 30vh;
     width: 100%;
 }
 
 /* Terceiro Valor */
 .valor3 {
     background-color: brown;
-    height: 20em;
-    width: 15em;
+    height: 50vh;
+    width: 40vh;
     border: 3px solid #FFA500;
-    border-radius: 0.5em;
-    box-shadow: 0.5em 0.3em 0.4em rgba(0, 0, 0, 0.250);
+    border-radius: 1vh;
+    box-shadow: 1vh 0.6vh 0.8vh rgba(0, 0, 0, 0.250);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .valor3 img{
     background-color: azure;
-    height: 8em;
-    width: 8em;
-    margin-left: 3.5em;
-    margin-bottom: 1em;
+    height: 20vh;
+    width: 20vh;
+    margin-bottom: 2vh;
 }
 
 .valor3 span{
     background-color: blue;
-    height: 11em;
+    height: 30vh;
     width: 100%;
 }
 
 /* Conteudo da pagina */
 .conteudo{
     background-color: cornflowerblue;
-    height: 20em;
+    height: 50vh;
     width: 100%;
-    margin-bottom: 3em;
+    margin-bottom: 6vh;
     display: flex;
 }
 
 /* Primeiro conteudo */
 .imagem{
     background-color: darkorange;
-    height: 18em;
-    width: 20em;
-    border-radius: 0.5em;
+    height: 45vh;
+    width: 50vh;
+    border-radius: 1vh;
 }
 
 .texto{
     background-color: darkgreen;
-    height: 18em;
-    width: 40em;
-    border-radius: 0.5em;
+    height: 45vh;
+    width: 80vh;
+    border-radius: 1vh;
 }
 
 /* Segundo Conteudo */
 .imagem2{
     background-color: darkorange;
-    height: 18em;
-    width: 20em;
-    border-radius: 0.5em;
+    height: 45vh;
+    width: 50vh;
+    border-radius: 1vh;
 }
 
 .texto2{
     background-color: darkgreen;
-    height: 18em;
-    width: 40em;
-    border-radius: 0.5em;
+    height: 45vh;
+    width: 80vh;
+    border-radius: 1vh;
 }
 
 /* Terceiro Conteudo */
 .imagem3{
     background-color: darkorange;
-    height: 18em;
-    width: 20em;
-    border-radius: 0.5em;
+    height: 45vh;
+    width: 50vh;
+    border-radius: 1vh;
 }
 
 .texto3{
     background-color: darkgreen;
-    height: 18em;
-    width: 40em;
-    border-radius: 0.5em;
+    height: 45vh;
+    width: 80vh;
+    border-radius: 1vh;
 }

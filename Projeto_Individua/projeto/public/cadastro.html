@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/cadastro.css">
+
+    <script src="js/funcoes.js"></script>
+
     <title>Página | Cadastro</title>
 </head>
 
@@ -18,10 +21,10 @@
                 <img src="assests/img/Logo.jpeg" alt="">
             </div>
             <ul class="navbar">
-                <li><a href="">Home</a></li>
-                <li><a href="">Sobre Mim</a></li>
-                <li><a href="">Cadastro</a></li>
-                <li><a href="">Login</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobreMim.html">Sobre Mim</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="login.html">Login</a></li>
             </ul>
         </div>
     </div>
@@ -102,7 +105,7 @@
                         </option>
                     </select>
 
-                    <select name="" id="select_genero2">
+                    <select name="" id="select_genero3">
                         <option value="null">Nenhum</option>
                         <option value="ficcao_cientifica">Ficção científica</option>
                         <option value="Romance">Romance</option>
@@ -130,7 +133,7 @@
                     </select>
                 </div>
 
-                <button class="btn_cadastro" type="submit" onclick="cadastrar()">Cadastrar</button>
+                <button class="btn_cadastro" type="submit" onclick="cadastro()">Cadastrar</button>
 
             </div>
         </div>
@@ -154,8 +157,8 @@
 
 <script>
 
-    function cadastrar() {
-        aguardar();
+    function cadastro() {
+        // aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -163,16 +166,16 @@
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
         var confirmacaoSenhaVar = input_confirmar_senha.value;
-        var genero1 = select_genero1.value;
-        var genero2 = select_genero2.value;
-        var genero3 = select_genero3.value;
+        var genero1Var = select_genero1.value;
+        var genero2Var = select_genero2.value;
+        var genero3Var = select_genero3.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || genero1 == "" ||
-            genero2 == "" || genero3 == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || genero1Var == "" ||
+            genero2Var == "" || genero3Var == "") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-            finalizarAguardar();
+            // finalizarAguardar();
             return false;
         } else {
             setInterval(sumirMensagem, 5000)
@@ -199,23 +202,23 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+                // cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML =
-                    "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                // mensagem_erro.innerHTML =
+                //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location.href = "http://localhost:3333/login.html";
                 }, "2000")
 
-                limparFormulario();
-                finalizarAguardar();
+                // limparFormulario();
+                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            // finalizarAguardar();
         });
 
         return false;

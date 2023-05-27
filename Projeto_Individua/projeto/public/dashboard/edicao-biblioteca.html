@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaTech | Página Inicial</title>
+
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/dashboards.css" />
+    <!-- <script src="../js/funcoes.js"></script> -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="listarInfosDeUm()" style="background-color: #161618;">
+    <!-- <body onload="validarSessao()"> -->
+
+    <div class="janela">
+
+
+        <div class="header-left">
+
+            <h1>AquaTech</h1>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="cards.html">
+                    <h3>Aquários</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3>Mural de Avisos</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div class="dash-right">
+
+            <div class="avisos">
+                <div class="container">
+                    <h1>Editar um aviso</h1>
+                    <div class="div-form">
+                        <label>
+                            Título:
+                            <br>
+                            <input id="input_titulo" maxlength="100" type="text" style="color: rgb(196, 196, 196)">
+                        </label>
+                        <select name="genero" id="genero">
+                            <option value="null">Nenhum</option>
+                            <option value="Ficção científica">Ficção científica</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Suspense">Suspense</option>
+                            <option value="Terror">Terror</option>
+                            <option value="Aventura">Aventura</option>
+                            <option value="Crime e mistério">Crime e mistério</option>
+                            <option value="História">História</option>
+                            <option value="Biografia">Biografia</option>
+                            <option value="Autobiografia">Autobiografia</option>
+                            <option value="Poesia">Poesia</option>
+                            <option value="Contos">Contos</option>
+                            <option value="Fantasia">Fantasia</option>
+                            <option value="Mitologia">Mitologia</option>
+                            <option value="Literatura Infantil e Juvenil">
+                              Literatura Infantil e Juvenil
+                            </option>
+                            <option value="Drama">Drama</option>
+                            <option value="Comédia">Comédia</option>
+                            <option value="Ensaio">Ensaio</option>
+                            <option value="Crônica">Crônica</option>
+                            <option value="Guias de Viagem">Guias de Viagem</option>
+                            <option value="Livros de autoajuda e desenvolvimento pessoal">
+                              Livros de autoajuda e desenvolvimento pessoal
+                            </option>
+                          </select>
+                        <br>
+                        <button onclick="editar()">Editar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+input_titulo.value = sessionStorage.getItem("ID_POSTAGEM_EDITANDO")
+
+    function listarInfosDeUm() {
+        console.log("Criar função de trazer informações de post escolhido");
+    }
+
+    function limparSessao() {
+    // aguardar();
+    sessionStorage.clear();
+    // finalizarAguardar();
+    window.location.href = "http://localhost:3333/login.html";
+  }
+
+    function editar() {
+  // var nome = sessionStorage.getItem("ID_POSTAGEM_EDITANDO");
+  var idUsuario = sessionStorage.getItem("ID_USUARIO");
+
+  fetch(`/biblioteca/editar/${idUsuario}`, {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      titulo: input_titulo.value,
+      genero: genero.value,
+      nomeAntigo: sessionStorage.getItem("ID_POSTAGEM_EDITANDO")
+    })
+  })
+    .then(function (resposta) {
+      if (resposta.ok) {
+        window.alert(
+          "Post atualizado com sucesso pelo usuário de email: " +
+            sessionStorage.getItem("EMAIL_USUARIO") +
+            "!"
+        );
+        window.location = "biblioteca.html";
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw (
+          "Houve um erro ao tentar atualizar a postagem! Código da resposta: " +
+          resposta.status
+        );
+      }
+    })
+    .catch(function (erro) {
+      console.log("#ERRO: ", erro);
+    });
+}
+
+
+
+</script>

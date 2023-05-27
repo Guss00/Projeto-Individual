@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do</title>
+    <link rel="stylesheet" href="CSS/teste.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="to-do">
+      <div class="header">
+        <p>Biblioteca</p>
+        <button title="Apagar todos os itens">
+          <i class="bx bxs-trash-alt" style="color: white"></i>
+        </button>
+      </div>
+      <hr />
+      <br />
+      <div class="divInsert">
+        <input class="textInsert" type="text" id="nome_do_livro" />
+        <select name="" id="select_genero1">
+          <option value="null">Nenhum</option>
+          <option value="Ficção científica">Ficção científica</option>
+          <option value="Romance">Romance</option>
+          <option value="Suspense">Suspense</option>
+          <option value="Terror">Terror</option>
+          <option value="Aventura">Aventura</option>
+          <option value="Crime e mistério">Crime e mistério</option>
+          <option value="História">História</option>
+          <option value="Biografia">Biografia</option>
+          <option value="Autobiografia">Autobiografia</option>
+          <option value="Poesia">Poesia</option>
+          <option value="Contos">Contos</option>
+          <option value="Fantasia">Fantasia</option>
+          <option value="Mitologia">Mitologia</option>
+          <option value="Literatura Infantil e Juvenil">
+            Literatura Infantil e Juvenil
+          </option>
+          <option value="Drama">Drama</option>
+          <option value="Comédia">Comédia</option>
+          <option value="Ensaio">Ensaio</option>
+          <option value="Crônica">Crônica</option>
+          <option value="Guias de Viagem">Guias de Viagem</option>
+          <option value="Livros de autoajuda e desenvolvimento pessoal">
+            Livros de autoajuda e desenvolvimento pessoal
+          </option>
+        </select>
+
+        <button title="Adicionar item"><i class="bx bx-plus"></i></button>
+      </div>
+      <ul></ul>
+    </div>
+
+    <!-- <script src="index.js"></script> -->
+  </body>
+</html>
+
+<script>
+  const texto = document.querySelector("input");
+  const btnInsert = document.querySelector(".divInsert button");
+  const btnDeleteAll = document.querySelector(".header button");
+  const ul = document.querySelector("ul");
+  const genero1 = document.getElementById("select_genero1");
+
+  const localStorageKey = "todolist";
+
+  var itensDB = [];
+
+  btnDeleteAll.onclick = () => {
+    itensDB = [];
+    updateDB();
+  };
+
+  // texto.addEventListener('keypress', e => {
+  //   if (e.key == 'Enter' && texto.value != '') {
+  //     setItemDB()
+  //   }
+  // })
+
+  btnInsert.onclick = () => {
+    if (texto.value == "") {
+      alert("Digite algo para inserir em sua lista");
+    } else if (validateIfExistNewTask()) {
+      alert("Já existe uma task com essa descrição");
+    } else {
+    setItemDB();
+
+      itensDB.push({
+      item: texto.value,
+      status: "",
+      genero1: genero1.value,
+    
+    });
+    updateDB();
+}
+  };
+
+  function validateIfExistNewTask() {
+    var itensDB = JSON.parse(localStorage.getItem(localStorageKey)) ?? [];
+
+    var inputValue = texto.value;
+
+    var exists = itensDB.find((x) => x.item == inputValue);
+    return !exists ? false : true;
+  }
+
+  function setItemDB() {
+    //   if (itensDB.length >= 20) {
+    //     alert('Limite máximo de 20 itens atingido!')
+    //     return
+    //   }
+
+    var nome_livroVar = texto.value;
+    var fkUsuarioVar = sessionStorage.ID_USUARIO;
+    var genero1Var = genero1.value;
+
+
+    if (
+      nome_livroVar == "" ||
+      fkUsuarioVar == "" ||
+      genero1Var == ""
+    ) {
+      // cardErro.style.display = "block"
+      // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+      // finalizarAguardar();
+      return false;
+    }
+
+    fetch("/usuarios/adicionar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeLivroServer: nome_livroVar,
+        genero1Server: genero1Var,
+        fkUsuarioServer: fkUsuarioVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          // cardErro.style.display = "block";
+
+          // mensagem_erro.innerHTML =
+          //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            console.log("Livro cadastrado com sucesso!");
+          }, "2000");
+
+          // limparFormulario();
+          // finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar inserir um livro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function updateDB() {
+    localStorage.setItem(localStorageKey, JSON.stringify(itensDB));
+    loadItens();
+  }
+
+  function loadItens() {
+    ul.innerHTML = "";
+
+    fetch(`/medidas/ultimas/${fkUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`livros recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idAquario);
+                });
+            } else {
+                console.error('Nenhum livro encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos livros p/ gráfico: ${error.message}`);
+            });
+
+    itensDB.forEach((item, i) => {
+      insertItemTela(
+        item.item,
+        item.status,
+        i,
+        item.genero1,
+      );
+    });
+  }
+
+  function insertItemTela(text, status, i, genero1) {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <div class="divLi">
+        <input type="checkbox" ${status} data-i=${i} onchange="done(this, ${i});" />
+        <span data-si=${i}>${text} <span class="generos"> ${genero1}</span></span>
+        <button id="btn-ok" onclick="removeItem(${i})" title="Excluir item" data-i=${i}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+  </svg></button>
+      </div>
+      `;
+    ul.appendChild(li);
+
+    if (status) {
+      document.querySelector(`[data-si="${i}"]`).classList.add("line-through");
+    } else {
+      document
+        .querySelector(`[data-si="${i}"]`)
+        .classList.remove("line-through");
+    }
+
+    texto.value = "";
+
+    genero1.value = '';
+  }
+
+  function done(chk, i) {
+    if (chk.checked) {
+      itensDB[i].status = "checked";
+    } else {
+      itensDB[i].status = "";
+    }
+
+    updateDB();
+  }
+
+  function removeItem(i) {
+
+    
+
+    var fkUsuarioVar = sessionStorage.ID_USUARIO;
+    var index = itensDB.findIndex((x) => x.item == i);
+
+    var nomedolivroVar = itensDB[i].item
+    console.log(nomedolivroVar)
+
+    fetch("/usuarios/remover", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeDoLivroServer: nomedolivroVar,
+        fkUsuarioServer: fkUsuarioVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          // cardErro.style.display = "block";
+
+          // mensagem_erro.innerHTML =
+          //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            console.log("Livro removido com sucesso!");
+          }, "2000");
+
+          // limparFormulario();
+          // finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar remover um livro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+apagar(i);
+    return false;
+
+
+    
+  }
+
+  function apagar(i){
+    itensDB.splice(i, 1);
+    updateDB();
+
+  }
+
+  loadItens();
+</script>
