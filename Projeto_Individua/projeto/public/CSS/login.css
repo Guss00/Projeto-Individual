@@ -1,5 +1,5 @@
 .login {
-    padding-top: 7rem;
+    padding-top: 14rem;
     display: flex;
     justify-content: space-between;
 }
@@ -11,13 +11,13 @@
     align-items: center;
 }
 
-.formulario{
+.formulario {
     background-color: rgb(62, 58, 58);
-    width: 70vh;
-    height: 35vh;
+    width: 35rem;
+    height: 17.5rem;
     display: flex;
     flex-direction: column;
-    margin-left: 20vh;
+    margin-left: 20rem;
     padding: 20px;
     padding-top: 30px;
     border-radius: 10px;
@@ -25,34 +25,37 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-img{
-    height: 80vh;
-    width: 80vh;
+img {
+    height: 40rem;
+    width: 40rem;
 }
 
-
-span{
+span {
     font-size: 1.2rem;
-    margin-bottom: -3vh;
+    margin-bottom: -0.8rem;
     color: #FFA500;
 }
 
-input{
+input {
     width: 95%;
-    height: 4vh;
+    height: 2rem;
     border-radius: 5px;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.250);
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
 }
 
-.btn_login{
+.btn_login {
     border: none;
     background-color: #FFA500;
-    width: 25vh;
-    height: 5vh;
+    width: 12.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 5px;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.250);
-    margin-left: 20vh;
-    margin-top: 5vh;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);
+    margin-top: 2.5rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
 }

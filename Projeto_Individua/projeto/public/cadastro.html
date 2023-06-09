@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/cadastro.css">
 
-    <script src="js/funcoes.js"></script>
+    <link rel="icon" type="image/png" href="assests/img/imagenloginho.png"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
 
     <title>Página | Cadastro</title>
 </head>
@@ -43,10 +45,10 @@
                 <input type="email" id="input_email"><br>
 
                 <span> Senha: </span><br>
-                <input type="password" id="input_senha"><br>
+                <input type="password" id="input_senha" maxlength="14"><br>
 
                 <span> Confirme sua senha: </span><br>
-                <input type="password" id="input_confirmar_senha">
+                <input type="password" id="input_confirmar_senha" maxlength="14">
 
                 <h3> Qual Gênero de livro você gosta? </h3>
 
@@ -145,11 +147,13 @@
                 <img src="assests/img/Logo.jpeg" alt="">
             </div>
             <h4>
-                Feito com amor por um aluno SPTech &hearts; 2023/1
+                Um livro é um sonho que você segura em suas mãos.
             </h4>
+            <small>Neil Gaiman</small>
         </div>
     </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 
 </body>
 
@@ -157,11 +161,20 @@
 
 <script>
 
-    function cadastro() {
-        // aguardar();
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
+    function cadastro() {
+
         var nomeVar = input_nome_completo.value;
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
@@ -172,24 +185,35 @@
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || genero1Var == "" ||
             genero2Var == "" || genero3Var == "") {
-            // cardErro.style.display = "block"
-            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
-            // finalizarAguardar();
+                Toast.fire({
+                  icon: 'warning',
+                  title: "Não há dados suficientes para cadastrar!"
+                })
             return false;
-        } else {
-            setInterval(sumirMensagem, 5000)
         }
 
-        // Enviando o valor da nova input
+        if(emailVar.indexOf("@") == false || emailVar.endsWith(".com") == false){
+            Toast.fire({
+                  icon: 'warning',
+                  title: "E-mail Inválido!"
+                })
+            return false;
+        }
+
+        if(confirmacaoSenhaVar != senhaVar){
+            Toast.fire({
+                  icon: 'warning',
+                  title: "Confirmação de Senha Errada!"
+                })
+            return false;
+        }
+
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
@@ -202,29 +226,19 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                // cardErro.style.display = "block";
-
-                // mensagem_erro.innerHTML =
-                //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
-                    window.location.href = "http://localhost:3333/login.html";
+                    window.location = "/login.html";
                 }, "2000")
 
-                // limparFormulario();
-                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
         });
 
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
 </script>

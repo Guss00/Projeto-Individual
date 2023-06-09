@@ -23,7 +23,7 @@ CREATE TABLE comunidade (
 idPostagem INT PRIMARY KEY,
 titulo VARCHAR(45),
 tipo VARCHAR(30),
-descricao VARCHAR(250),
+descricao VARCHAR(500),
 fkUsuario INT,
 CONSTRAINT fkUsuarios FOREIGN KEY(fkUsuario) REFERENCES usuario(idUsuario)
 );

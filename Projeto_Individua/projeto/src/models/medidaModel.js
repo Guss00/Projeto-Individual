@@ -24,9 +24,40 @@ function buscarQuantidadeDePostagensOutros() {
   return database.executar(instrucaoSql);
 }
 
+// Dados do Usuario ------------------------------------------------------------------------------------------------------------------------------------------------
+
+function buscarQuantidadeDePostagensUsuario(fkUsuario) {
+  const instrucaoSql = `SELECT COUNT(*) AS quantidade FROM comunidade WHERE fkUsuario = ${fkUsuario};`;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+function buscarQuantidadeDePostagensCriticasUsuario(fkUsuario) {
+  const instrucaoSql = `SELECT COUNT(*) AS quantidade FROM comunidade WHERE tipo = 'Crítica' AND fkUsuario = ${fkUsuario};`;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+function buscarQuantidadeDePostagensRecomendacaoUsuario(fkUsuario) {
+  const instrucaoSql = `SELECT COUNT(*) AS quantidade FROM comunidade WHERE tipo = 'Recomendação' AND fkUsuario = ${fkUsuario};`;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+function buscarQuantidadeDePostagensOutrosUsuario(fkUsuario) {
+  const instrucaoSql = `SELECT COUNT(*) AS quantidade FROM comunidade WHERE tipo = 'Outro' AND fkUsuario = ${fkUsuario};`;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
   buscarQuantidadeDePostagens,
   buscarQuantidadeDePostagensCriticas,
   buscarQuantidadeDePostagensRecomendacao,
-  buscarQuantidadeDePostagensOutros
+  buscarQuantidadeDePostagensOutros,
+  buscarQuantidadeDePostagensUsuario,
+  buscarQuantidadeDePostagensCriticasUsuario,
+  buscarQuantidadeDePostagensRecomendacaoUsuario,
+  buscarQuantidadeDePostagensOutrosUsuario
 };

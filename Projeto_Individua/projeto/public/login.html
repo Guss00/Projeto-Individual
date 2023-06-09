@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/login.css">
-    <title>Página | Login</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+
+    <link rel="icon" type="image/png" href="assests/img/imagenloginho.png"/>
+
+    <title>Letras em Ação | Login</title>
 </head>
 
 <body>
@@ -49,17 +54,32 @@
                 <img src="assests/img/Logo.jpeg" alt="">
             </div>
             <h4>
-                Feito com amor por um aluno SPTech &hearts; 2023/1
+                A leitura é uma viagem que você pode fazer sem sair do lugar.
             </h4>
+            <small>Jhumpa Lahiri</small>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 
 </body>
 
 </html>
 
 <script>
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
     function Entrar() {
         // aguardar();
 
@@ -67,14 +87,13 @@
         var senha = input_senha.value;
 
         if (email == "" || senha == "") {
-            // cardErro.style.display = "block"
-            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            // finalizarAguardar();
+            Toast.fire({
+                  icon: 'warning',
+                  title: "Os campos estão vazios!"
+                })
             return false;
         } 
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
+    
 
         console.log("FORM LOGIN: ", email);
         console.log("FORM SENHA: ", senha);
@@ -89,14 +108,10 @@
                 senhaServer: senha
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
-                console.log(resposta);
 
                 resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome_completo;
@@ -107,14 +122,17 @@
 
 
                     setTimeout(function () {
-                        window.location = "/dashboard/biblioteca.html";
+                        window.location = "./dashboard/dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
 
             } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                Toast.fire({
+                  icon: 'warning',
+                  title: "Você não está cadastrado!"
+                })
 
                 resposta.text().then(texto => {
                     console.error(texto);

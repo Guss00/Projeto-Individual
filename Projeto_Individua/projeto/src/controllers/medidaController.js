@@ -44,9 +44,63 @@ function outros(req, res) {
     });
 }
 
+//DADOS USUARIO ----------------------------------------------------------------------------------------------------------------------------------------
+
+function quantidadeTotalUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaModel.buscarQuantidadeDePostagensUsuario(fkUsuario)
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      console.log("Erro ao buscar a quantidade total de postagens do usuário:", error);
+      res.sendStatus(500);
+    });
+}
+
+function criticasUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaModel.buscarQuantidadeDePostagensCriticasUsuario(fkUsuario)
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      console.log("Erro ao buscar a quantidade de postagens críticas do usuário:", error);
+      res.sendStatus(500);
+    });
+}
+
+function recomendacaoUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaModel.buscarQuantidadeDePostagensRecomendacaoUsuario(fkUsuario)
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      console.log("Erro ao buscar a quantidade de postagens de recomendação do usuário:", error);
+      res.sendStatus(500);
+    });
+}
+
+function outrosUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaModel.buscarQuantidadeDePostagensOutrosUsuario(fkUsuario)
+    .then(result => {
+      res.json(result);
+    })
+    .catch(error => {
+      console.log("Erro ao buscar a quantidade de postagens de outros do usuário:", error);
+      res.sendStatus(500);
+    });
+}
+
 module.exports = {
   quantidadeTotal,
   criticas,
   recomendacao,
-  outros
+  outros,
+  quantidadeTotalUsuario,
+  criticasUsuario,
+  recomendacaoUsuario,
+  outrosUsuario
 };

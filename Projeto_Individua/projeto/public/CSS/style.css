@@ -3,11 +3,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+  /* font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  /* background-color: #212124; */
+  display: flex;
 }
 
-.container {
+/* .container {
   width: 80%;
   margin: auto;
   display: flex;
@@ -44,11 +45,11 @@ body {
   color: #32b9cd;
   width: fit-content;
   font-weight: 500;
-}
+} */
 
 
 /* BANNER */
-
+/* 
 .banner {
   height: fit-content;
   padding: 40px 0;
@@ -82,7 +83,7 @@ body {
 
 /* missao visao valores */
 
-.social {
+/* .social {
   background-color: #e5e5e5;
   display: flex;
 }
@@ -111,7 +112,7 @@ body {
 }
 
 /* FOOTER */
-
+/* 
 .footer {
   background-color: #32b9cd;
   height: 150px;
@@ -127,12 +128,12 @@ body {
 
 .footer .container .version {
   font-size: 12px;
-}
+} */
 
 
 /* LOGIN */
 
-.banner .container .card {
+/* .banner .container .card {
   background-color: #e5e5e5;
   height: fit-content;
   width: 400px;
@@ -162,11 +163,11 @@ body {
 
 button {
   cursor: pointer;
-}
+} */
 
 /* FORMULARIO */
 
-.alerta_erro{
+/* .alerta_erro{
   display: flex;
   justify-content: flex-end;
 }
@@ -229,7 +230,7 @@ input {
 .loading-div img {
   height: 50px;
   width: 50px;
-}
+} */
 
 /* PAGINA DOS GRÁFICOS */
 
@@ -238,7 +239,7 @@ input {
   width: 100vw;
 }
 
-.header-left a {
+/* .header-left a {
   text-decoration: none;
   color: white;
 }
@@ -256,10 +257,10 @@ input {
   align-items: center;
   border-right: 3px solid #32b9cd;
   background-color: #212124;
-  /* border: 3px solid pink; */
-}
+  /* border: 3px solid pink;
+} 
 
-.dash-right {
+/* .dash-right {
   display: flex;
   width: 80%;
   height: fit-content;
@@ -267,9 +268,9 @@ input {
   position: relative;
   top: 0;
   left: 25%;
-}
+} */
 
-.header-left h1 {
+/* .header-left h1 {
   color: #32b9cd;
 }
 
@@ -330,20 +331,20 @@ input {
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
-}
+} */
 
 /* pagina extra - simulador */
-.simulador {
+/* .simulador {
   color: white;
 
 }
 
 .simulador .container {
   flex-direction: column
-}
+} */
 
 /* Alarme */
-#alerta {
+/* #alerta {
   position: absolute;
   right: 0px;
 }
@@ -384,4 +385,4 @@ input {
   50%  {transform: rotate(25deg)}
   75%  {transform: rotate(-25deg)}
   100% {transform: rotate(25deg)}
-}
+} */

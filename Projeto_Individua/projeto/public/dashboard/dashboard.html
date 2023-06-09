@@ -1,396 +1,1200 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
-
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/dashboards.css">
-    <!-- <script src="../js/funcoes.js"></script>
-    <script src="./alerta.js"></script> -->
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <head>
     <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      rel="shortcut icon"
+      href="../assets/icon/favicon2.ico"
+      type="image/x-icon"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Letras em Ação | Dashboards</title>
 
-    <!-- scripts do Chart.js - 2022-1 -->
+    <link rel="stylesheet" href="../CSS/navbarDash.css" />
+    <link rel="stylesheet" href="../CSS/dasboard.css" />
+
+    <link rel="icon" type="image/png" href="../assests/img/imagenloginho.png"/>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
 
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
-</head>
-
-<!-- <body onload=" atualizarFeed()"> -->
-
-<body>
-
-    <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+  <body style="background-color: aliceblue">
+    <div class="header">
+      <div class="container">
+        <div class="titulo">
+          <img src="../assests/img/Logo.jpeg" alt="" />
         </div>
-
-        <div class="dash">
-            <div id="alerta">
-            </div>
-
-            <div class="btns-dash">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart btn-pink" onclick="exibirAquario(1)" id="btnAquario1">Aquario 1</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(2)" id="btnAquario2">Aquario 2</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(3)" id="btnAquario3">Aquario 3</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(4)" id="btnAquario4">Aquario 4</button>
-            </div>
-            <div id="graficos">
-                <div id="grafico1" class="display-block">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario1">123</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas1"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura1" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico2" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario2"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas2"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura2" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico3" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario3"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas3"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura3" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico4" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario4"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas4"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura4" style="color: white"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ul class="navbar">
+          <li>
+            <a href="comunidade.html" style="margin-left: -30rem">Comunidade</a>
+          </li>
+          <li>
+            <a href="biblioteca.html" style="margin-left: -20rem"
+              >Biblioteca Virtual</a
+            >
+          </li>
+          <li style="margin-left: -15rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            </svg> Usuario&nbsp; <span id="b_usuario">usuário</span>
+          </li>
+          <li style="margin-right: -8rem">
+            <a onclick="Sair()">Sair&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+              <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+            </svg></a>
+          </li>
+        </ul>
+      </div>
     </div>
 
+    <div class="parteDosBlocos">
+      <div class="tituloPorcentagem">
+        <h2>Porcentagem das Postagens na Comunidade em Geral</h2>
+      </div>
+    <div class="blocos">
+      <div class="bloco1">
+        <h2>Outros</h2>
+        <span id="porcentagem_outros"></span>
+      </div>
+      <div class="bloco2">
+        <h2>Crítica</h2>
+        <span id="porcentagem_critica"></span>
+      </div>
+      <div class="bloco3">
+        <h2>Recomendação</h2>
+        <span id="porcentagem_recomendacao"></span>
+      </div>
+    </div>
+  </div>
 
-    <div class="grafico-fluxo-setores">
+    <div class="graficosComunidade">
+      <div class="graficosComunidadeGeral">
+        <h2>Comunidade Geral</h2>
         <section>
-          <canvas id="chaveTeste" style="width: 71rem; height: 18rem"></canvas>
+          <canvas id="graficoPostagens"></canvas>
         </section>
-  
-        <div id="avisoCaptura" class="avisoCaptura"></div>
       </div>
 
+      <div class="graficoComunidadeUsuario">
+        <h2>Suas Postagens na Comunidade</h2>
+        <section>
+          <canvas id="graficoPostagensUsuario"></canvas>
+        </section>
+      </div>
+    </div>
 
-</body>
+    <div class="graficosBiblioteca">
+      <div class="graficoBibliotecaGeral">
+        <h2>Biblioteca Geral</h2>
+        <section>
+          <canvas id="graficoBiblioteca"></canvas>
+        </section>
+      </div>
 
+      <div class="graficoBibliotecausuario">
+        <h2>Sua Biblioteca</h2>
+        <section>
+          <canvas id="graficoBibliotecaUsuario"></canvas>
+        </section>
+      </div>
+    </div>
+  </body>
 </html>
 
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    window.onload = obterDadosGraficos();
-
-    // const testefk = 1;
-
-let proximaAtualizacao;
-
-window.onload = obterDadosGraficos();
-
-function obterDadosGraficos() {
-  obterDadosGrafico(1);
-  // obterDadosGrafico()
-}
-
-function obterDadosGrafico() {
-  if (proximaAtualizacao != undefined) {
-    clearTimeout(proximaAtualizacao);
-  }
-
-  fetch(`/medidas/ultimas/`, { cache: "no-store" })
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (resposta) {
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          resposta.reverse();
-
-          plotarGrafico(resposta);
-        });
-      } else {
-        console.error("Nenhum dado encontrado ou erro na API");
-      }
-    })
-    .catch(function (error) {
-      console.error(
-        `Erro na obtenção dos dados p/ gráfico: ${error.message}`
-      );
-    });
-}
-
-function plotarGrafico(resposta) {
-  console.log("Iniciando plotagem do gráfico...");
-
-  // Criando estrutura para plotar gráfico - labels
-  let labels = [];
-  let dados = {
-    labels: labels,
-    datasets: [
-      {
-        label: "Padaria",
-        data: [],
-        fill: false,
-        borderWidth: 1,
-        backgroundColor: "rgba(184,134,11)",
-        tension: 0.1,
-      },
-      // linha 2
-    //   {
-    //     label: "Açougue",
-    //     data: [210, 745, 140, 1005, 758, 140, 69, 210, 630],
-    //     borderWidth: 1,
-    //     backgroundColor: "rgba(205,92,92)",
-    //   },
-
-    //   // linha 3
-    //   {
-    //     label: "Bebidas",
-    //     data: [701, 643, 222, 550, 345, 779, 162, 20, 90],
-    //     borderWidth: 1,
-    //     backgroundColor: "rgba(135,206,250)",
-    //   },
-    //   // linha 3
-    //   {
-    //     label: "Higiene",
-    //     data: [600, 220, 100, 180, 1000, 12, 35, 64, 34],
-    //     borderWidth: 1,
-    //     backgroundColor: "rgba(119,136,153)",
-    //   },
-    //   // linha 3
-    //   {
-    //     label: "Confeitaria",
-    //     data: [200, 510, 452, 965, 74, 324, 466, 741, 254],
-    //     borderWidth: 1,
-    //     backgroundColor: "rgba(188,143,143)",
-    //   },
-    //   // linha 3
-    //   {
-    //     label: "Limpeza",
-    //     data: [500, 650, 254, 20, 34, 745, 125, 225, 210],
-    //     borderWidth: 1,
-    //     backgroundColor: "rgba(238,232,170)",
-    //   },
-    //   // linha 3
-    //   {
-    //     label: "Bolachas",
-    //     data: [210, 10, 254, 100, 788, 324, 147, 189, 452],
-    //     borderWidth: 1,
-    //     backgroundColor: "rgba(139,0,139)",
-    //   },
-    ],
+  window.onload = function () {
+    Comunidade();
+    Biblioteca();
   };
 
-  console.log("----------------------------------------------");
-  console.log(
-    'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-  );
-  console.log(resposta);
-
-  // Inserindo valores recebidos em estrutura para plotar o gráfico
-
-  for (let i = resposta.length - 1; i >= 0; i--) {
-    var registro = resposta[i];
-
-    labels.push(registro.momento_grafico);
-
-    console.log(registro.totalCaptacao);
-
-    dados.datasets[0].data.push(registro.totalCaptacao * 100);
+  function Sair() {
+    // aguardar();
+    sessionStorage.clear();
+    // finalizarAguardar();
+    window.location = "../login.html";
   }
 
-  console.log("----------------------------------------------");
-  console.log("O gráfico será plotado com os respectivos valores:");
-  console.log("Labels:");
-  console.log(labels);
-  console.log("Dados:");
-  console.log(dados.datasets);
-  console.log("----------------------------------------------");
+  // Graficos Comunidade ---------------------------------------------------------------------------------------------------------------------------------
 
-  // Criando estrutura para plotar gráfico - config
-  const config = {
-    type: "bar",
-    data: dados,
-    options: {
-      tooltips: {
-        bodyFontStyle: "bold",
-        callbacks: {
-          label: function (tooltipItem, data) {
-            var value =
-              data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-            var label = data.labels[tooltipItem.index];
-            var message = "";
+  const controller = {
+    quantidadeTotal: function () {
+      return fetch(`/medidas/quantidadeTotal`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
 
-            if (value >= 420 && value <= 630) {
-              message = "Fluxo Ideal";
-            } else if (value > 209 && value < 420) {
-              message = "Fluxo em Alerta";
-            } else if (value > 630 && value < 841) {
-              message = "Fluxo em Alerta";
-            } else if (value >= 100 && value <= 210) {
-              message = "Fluxo Emergencial";
-            } else if (value >= 840 && value <= 1000) {
-              message = "Fluxo Emergencial";
-            } else if (value >= 0 && value < 100) {
-              message = "Fluxo Crítico";
-            } else if (value >= 1001) {
-              message = "Fluxo Crítico";
-            }
+    criticas: function () {
+      return fetch(`/medidas/criticas`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
 
-            return `Hora ${label}: Fluxo de ${value} - ${message}`;
-          },
-        },
-      },
-      legend: {
-        labels: {
-          fontColor: "white",
-        },
-      },
+    recomendacao: function () {
+      return fetch(`/medidas/recomendacao`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    outros: function () {
+      return fetch(`/medidas/outros`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
     },
   };
 
-  // Adicionando gráfico criado em div na tela
-  let myChart = new Chart(document.getElementById(`chaveTeste`), config);
+  const idUsuario = sessionStorage.getItem("ID_USUARIO");
 
-  setTimeout(() => atualizarGrafico(testefk, dados, myChart), 2000);
-}
+  const controllerUsuario = {
+    quantidadeTotalUsuario: function () {
+      return fetch(`/medidas/quantidadeTotalUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade);
+    },
 
-function atualizarGrafico(testefk, dados, myChart) {
-  fetch(`/medidas/tempo-real/${testefk}`, { cache: "no-store" })
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (novoRegistro) {
-          console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+    criticasUsuario: function () {
+      return fetch(`/medidas/criticasUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade);
+    },
 
-          console.log(`Dados atuais do gráfico:`);
-          console.log(dados);
+    recomendacaoUsuario: function () {
+      return fetch(`/medidas/recomendacaoUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade);
+    },
 
-          let avisoCaptura = document.getElementById(
-            `avisoCaptura`
-          );
-          avisoCaptura.innerHTML = "";
+    outrosUsuario: function () {
+      return fetch(`/medidas/outrosUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade);
+    },
+  };
 
-          if (
-            novoRegistro[0].momento_grafico ==
-            dados.labels[dados.labels.length - 1]
-          ) {
-            console.log(
-              "---------------------------------------------------------------"
-            );
-            console.log(
-              "Como não há dados novos para captura, o gráfico não será atualizado."
-            );
-            avisoCaptura.innerHTML =
-              "<i class='fa-solid fa-triangle-exclamation' style='color: #fffff;';></i> Foi trazido o dado mais atual capturado pelo sensor. Como não há novos dados a exibir, o gráfico não será atualizado.";
-            console.log("Horário do novo dado capturado:");
-            console.log(novoRegistro[0].momento_grafico);
-            console.log("Horário do último dado capturado:");
-            console.log(dados.labels[dados.labels.length - 1]);
-            console.log(
-              "---------------------------------------------------------------"
-            );
-          } else {
-            // Atualizar valores do gráfico
-            dados.labels.shift();
-            dados.labels.push(novoRegistro[0].momento_grafico);
+  const model = {
+    getDados: function () {
+      return Promise.all([
+        controller.quantidadeTotal(),
+        controller.outros(),
+        controller.criticas(),
+        controller.recomendacao(),
+      ]);
+    },
+  };
 
-            // var valorAtual = atualizarSetor(novoRegistro[0].totalCaptacao);
-            console.log(dados.datasets);
-            dados.datasets[0].data.shift();
+  const modelUsuario = {
+    getDadosUsuario: function () {
+      return Promise.all([
+        controllerUsuario.quantidadeTotalUsuario(),
+        controllerUsuario.outrosUsuario(),
+        controllerUsuario.criticasUsuario(),
+        controllerUsuario.recomendacaoUsuario(),
+      ]);
+    },
+  };
 
-            // gerar numero aleatorio para simulação
-            var max = 1200;
-            var min = 50;
-            var intervalo = 1 + max - min;
+  function Comunidade() {
+    const ctx = document.getElementById("graficoPostagens").getContext("2d");
+    const rtx = document
+      .getElementById("graficoPostagensUsuario")
+      .getContext("2d");
 
-            var aleatorio = parseInt(Math.random() * intervalo + min);
+    model
+      .getDados()
+      .then(function ([quantidadeTotal, outros, criticas, recomendacao]) {
+        // Processar os dados obtidos e criar o gráfico
+        const labels = [
+          "Total de Postagens na Comunidade",
+          "Outros",
+          "Crítica",
+          "Recomendação",
+        ];
+        const dados = [quantidadeTotal, outros, criticas, recomendacao];
 
+        var porcentagemOutros = (outros / quantidadeTotal) * 100;
+        var porcentagemCriticas = (criticas / quantidadeTotal) * 100;
+        var porcentagemRecomendacao = (recomendacao / quantidadeTotal) * 100;
 
-            dados.datasets[0].data.push(novoRegistro[0].totalCaptacao * aleatorio);
+        porcentagem_outros.innerHTML = parseInt(porcentagemOutros) + "%";
+        porcentagem_critica.innerHTML = parseInt(porcentagemCriticas) + "%";
+        porcentagem_recomendacao.innerHTML = parseInt(porcentagemRecomendacao) + "%";
 
-            console.log(dados + "aqui as labels");
-
-            myChart.update();
-          }
-
-
-          proximaAtualizacao = setTimeout(
-            () => atualizarGrafico(testefk, dados, myChart),
-            5000
-          );
+        const graficoPostagens = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: labels[0],
+                data: [quantidadeTotal, 0, 0, 0],
+                backgroundColor: "rgba(184, 134, 11, 1)",
+              },
+              {
+                label: labels[1],
+                data: [0, outros, 0, 0],
+                backgroundColor: "rgba(205, 92, 92, 1)",
+              },
+              {
+                label: labels[2],
+                data: [0, 0, criticas, 0],
+                backgroundColor: "rgba(135, 206, 250, 1)",
+              },
+              {
+                label: labels[3],
+                data: [0, 0, 0, recomendacao],
+                backgroundColor: "rgba(119, 136, 153, 1)",
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                stepSize: 1,
+              },
+            },
+          },
         });
-      } else {
-        console.error("Nenhum dado encontrado ou erro na API");
-        proximaAtualizacao = setTimeout(
-          () => atualizarGrafico(testefk, dados, myChart),
-          2000
-        );
-      }
-    })
-    .catch(function (error) {
-      console.error(
-        `Erro na obtenção dos dados para o gráfico: ${error.message}`
-      );
-    });
-}
+
+        return modelUsuario.getDadosUsuario(); // Obter os dados do usuário após obter os dados totais
+      })
+      .then(function ([
+        quantidadeTotalUsuario,
+        outrosUsuario,
+        criticasUsuario,
+        recomendacaoUsuario,
+      ]) {
+        // Processar os dados obtidos do usuário e criar o gráfico
+        const labels = [
+          "Total de Postagens na Comunidade",
+          "Outros",
+          "Crítica",
+          "Recomendação",
+        ];
+        const dados = [
+          quantidadeTotalUsuario,
+          outrosUsuario,
+          criticasUsuario,
+          recomendacaoUsuario,
+        ];
+
+        const graficoPostagensUsuario = new Chart(rtx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: labels[0],
+                data: [quantidadeTotalUsuario, 0, 0, 0],
+                backgroundColor: "rgba(184, 134, 11, 1)",
+              },
+              {
+                label: labels[1],
+                data: [0, outrosUsuario, 0, 0],
+                backgroundColor: "rgba(205, 92, 92, 1)",
+              },
+              {
+                label: labels[2],
+                data: [0, 0, criticasUsuario, 0],
+                backgroundColor: "rgba(135, 206, 250, 1)",
+              },
+              {
+                label: labels[3],
+                data: [0, 0, 0, recomendacaoUsuario],
+                backgroundColor: "rgba(119, 136, 153, 1)",
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                stepSize: 1,
+              },
+            },
+          },
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  //Grafico Biblioteca ----------------------------------------------------------------------------------------------------------------------------------------
+
+  const controllerBiblioteca = {
+    ficcaoCientifica: function () {
+      return fetch(`/medidasBiblioteca/ficcaoCientifica`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    romance: function () {
+      return fetch(`/medidasBiblioteca/romance`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    suspense: function () {
+      return fetch(`/medidasBiblioteca/suspense`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    terror: function () {
+      return fetch(`/medidasBiblioteca/terror`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    aventura: function () {
+      return fetch(`/medidasBiblioteca/aventura`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    crimeEmisterio: function () {
+      return fetch(`/medidasBiblioteca/crimeEmisterio`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    historia: function () {
+      return fetch(`/medidasBiblioteca/historia`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    biografia: function () {
+      return fetch(`/medidasBiblioteca/biografia`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    autobiografia: function () {
+      return fetch(`/medidasBiblioteca/autobiografia`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    poesia: function () {
+      return fetch(`/medidasBiblioteca/poesia`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    contos: function () {
+      return fetch(`/medidasBiblioteca/contos`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    fantasia: function () {
+      return fetch(`/medidasBiblioteca/fantasia`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    mitologia: function () {
+      return fetch(`/medidasBiblioteca/mitologia`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    literaturaInfantilEJuvenil: function () {
+      return fetch(`/medidasBiblioteca/literaturaInfantilEJuvenil`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    drama: function () {
+      return fetch(`/medidasBiblioteca/drama`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    comedia: function () {
+      return fetch(`/medidasBiblioteca/comedia`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    ensaio: function () {
+      return fetch(`/medidasBiblioteca/ensaio`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    cronica: function () {
+      return fetch(`/medidasBiblioteca/cronica`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    guiasDeViagem: function () {
+      return fetch(`/medidasBiblioteca/guiasDeViagem`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    LivosDeAutoAjuda: function () {
+      return fetch(`/medidasBiblioteca/LivosDeAutoAjuda`)
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+  };
+
+  const modelBiblioteca = {
+    getDados: function () {
+      return Promise.all([
+        controllerBiblioteca.ficcaoCientifica(),
+        controllerBiblioteca.romance(),
+        controllerBiblioteca.suspense(),
+        controllerBiblioteca.terror(),
+        controllerBiblioteca.aventura(),
+        controllerBiblioteca.crimeEmisterio(),
+        controllerBiblioteca.historia(),
+        controllerBiblioteca.biografia(),
+        controllerBiblioteca.autobiografia(),
+        controllerBiblioteca.poesia(),
+        controllerBiblioteca.contos(),
+        controllerBiblioteca.fantasia(),
+        controllerBiblioteca.mitologia(),
+        controllerBiblioteca.literaturaInfantilEJuvenil(),
+        controllerBiblioteca.drama(),
+        controllerBiblioteca.comedia(),
+        controllerBiblioteca.ensaio(),
+        controllerBiblioteca.cronica(),
+        controllerBiblioteca.guiasDeViagem(),
+        controllerBiblioteca.LivosDeAutoAjuda(),
+      ]);
+    },
+  };
+
+  // Dados do Usuario
+
+  const controllerBibliotecaUsuario = {
+    ficcaoCientificaUsuario: function () {
+      return fetch(`/medidasBiblioteca/ficcaoCientificaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    romanceUsuario: function () {
+      return fetch(`/medidasBiblioteca/romanceUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    suspenseUsuario: function () {
+      return fetch(`/medidasBiblioteca/suspenseUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    terrorUsuario: function () {
+      return fetch(`/medidasBiblioteca/terrorUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    aventuraUsuario: function () {
+      return fetch(`/medidasBiblioteca/aventuraUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    crimeEmisterioUsuario: function () {
+      return fetch(`/medidasBiblioteca/crimeEmisterioUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    historiaUsuario: function () {
+      return fetch(`/medidasBiblioteca/historiaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    biografiaUsuario: function () {
+      return fetch(`/medidasBiblioteca/biografiaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    autobiografiaUsuario: function () {
+      return fetch(`/medidasBiblioteca/autobiografiaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    poesiaUsuario: function () {
+      return fetch(`/medidasBiblioteca/poesiaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    contosUsuario: function () {
+      return fetch(`/medidasBiblioteca/contosUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    fantasiaUsuario: function () {
+      return fetch(`/medidasBiblioteca/fantasiaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    mitologiaUsuario: function () {
+      return fetch(`/medidasBiblioteca/mitologiaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    literaturaInfantilEJuvenilUsuario: function () {
+      return fetch(`/medidasBiblioteca/literaturaInfantilEJuvenilUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    dramaUsuario: function () {
+      return fetch(`/medidasBiblioteca/dramaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    comediaUsuario: function () {
+      return fetch(`/medidasBiblioteca/comediaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    ensaioUsuario: function () {
+      return fetch(`/medidasBiblioteca/ensaioUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    cronicaUsuario: function () {
+      return fetch(`/medidasBiblioteca/cronicaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    guiasDeViagemUsuario: function () {
+      return fetch(`/medidasBiblioteca/guiasDeViagemUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+
+    LivosDeAutoAjudaUsuario: function () {
+      return fetch(`/medidasBiblioteca/LivosDeAutoAjudaUsuario`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuario: idUsuario,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => data[0].quantidade); // Obter a quantidade do objeto de resposta
+    },
+  };
+
+  const modelBibliotecaUsuario = {
+    getDados: function () {
+      return Promise.all([
+        controllerBibliotecaUsuario.ficcaoCientificaUsuario(),
+        controllerBibliotecaUsuario.romanceUsuario(),
+        controllerBibliotecaUsuario.suspenseUsuario(),
+        controllerBibliotecaUsuario.terrorUsuario(),
+        controllerBibliotecaUsuario.aventuraUsuario(),
+        controllerBibliotecaUsuario.crimeEmisterioUsuario(),
+        controllerBibliotecaUsuario.historiaUsuario(),
+        controllerBibliotecaUsuario.biografiaUsuario(),
+        controllerBibliotecaUsuario.autobiografiaUsuario(),
+        controllerBibliotecaUsuario.poesiaUsuario(),
+        controllerBibliotecaUsuario.contosUsuario(),
+        controllerBibliotecaUsuario.fantasiaUsuario(),
+        controllerBibliotecaUsuario.mitologiaUsuario(),
+        controllerBibliotecaUsuario.literaturaInfantilEJuvenilUsuario(),
+        controllerBibliotecaUsuario.dramaUsuario(),
+        controllerBibliotecaUsuario.comediaUsuario(),
+        controllerBibliotecaUsuario.ensaioUsuario(),
+        controllerBibliotecaUsuario.cronicaUsuario(),
+        controllerBibliotecaUsuario.guiasDeViagemUsuario(),
+        controllerBibliotecaUsuario.LivosDeAutoAjudaUsuario(),
+      ]);
+    },
+  };
+
+  function Biblioteca() {
+    const ctx = document.getElementById("graficoBiblioteca").getContext("2d");
+    const rtx = document
+      .getElementById("graficoBibliotecaUsuario")
+      .getContext("2d");
+
+    modelBiblioteca
+      .getDados()
+      .then(function ([
+        ficcaoCientifica,
+        romance,
+        suspense,
+        terror,
+        aventura,
+        crimeEmisterio,
+        historia,
+        biografia,
+        autobiografia,
+        poesia,
+        contos,
+        fantasia,
+        mitologia,
+        literaturaInfantilEJuvenil,
+        drama,
+        comedia,
+        ensaio,
+        cronica,
+        guiasDeViagem,
+        LivosDeAutoAjuda,
+      ]) {
+        // Processar os dados obtidos e criar o gráfico
+        const labels = [
+          "Ficção científica",
+          "Romance",
+          "Suspense",
+          "Terror",
+          "Aventura",
+          "Crime e Mistério",
+          "História",
+          "Biografia",
+          "Autobiografia",
+          "Poesia",
+          "Contos",
+          "Fantasia",
+          "Mitologia",
+          "Literatura Infantil e Juvenil",
+          "Drama",
+          "Comédia",
+          "Ensaio",
+          "Crônica",
+          "Guias de Viagem",
+          "Livros de autoajuda e desenvolvimento pessoal",
+        ];
+        const dados = [
+          ficcaoCientifica,
+          romance,
+          suspense,
+          terror,
+          aventura,
+          crimeEmisterio,
+          historia,
+          biografia,
+          autobiografia,
+          poesia,
+          contos,
+          fantasia,
+          mitologia,
+          literaturaInfantilEJuvenil,
+          drama,
+          comedia,
+          ensaio,
+          cronica,
+          guiasDeViagem,
+          LivosDeAutoAjuda,
+        ];
+
+        const graficoBiblioteca = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: ["Gênero dos livros na Biblioteca"],
+            datasets: [
+              {
+                label: labels[0],
+                data: [ficcaoCientifica],
+                backgroundColor: ["rgba(184, 134, 11, 1)"],
+              },
+              {
+                label: labels[1],
+                data: [romance],
+                backgroundColor: ["rgba(205, 92, 92, 1)"],
+              },
+              {
+                label: labels[2],
+                data: [suspense],
+                backgroundColor: ["rgba(255, 165, 0, 1)"],
+              },
+              {
+                label: labels[3],
+                data: [terror],
+                backgroundColor: ["rgba(135, 206, 250, 1)"],
+              },
+              {
+                label: labels[4],
+                data: [aventura],
+                backgroundColor: ["rgba(50, 205, 50, 1)"],
+              },
+              {
+                label: labels[5],
+                data: [crimeEmisterio],
+                backgroundColor: ["rgba(147, 112, 219, 1)"],
+              },
+              {
+                label: labels[6],
+                data: [historia],
+                backgroundColor: ["rgba(218, 165, 32, 1)"],
+              },
+              {
+                label: labels[7],
+                data: [biografia],
+                backgroundColor: ["rgba(70, 130, 180, 1)"],
+              },
+              {
+                label: labels[8],
+                data: [autobiografia],
+                backgroundColor: ["rgba(240, 230, 140, 1)"],
+              },
+              {
+                label: labels[9],
+                data: [poesia],
+                backgroundColor: ["rgba(128, 0, 128, 1)"],
+              },
+              {
+                label: labels[10],
+                data: [contos],
+                backgroundColor: ["rgba(0, 255, 255, 1)"],
+              },
+              {
+                label: labels[11],
+                data: [fantasia],
+                backgroundColor: ["rgba(255, 0, 0, 1)"],
+              },
+              {
+                label: labels[12],
+                data: [mitologia],
+                backgroundColor: ["rgba(240, 128, 128, 1)"],
+              },
+              {
+                label: labels[13],
+                data: [literaturaInfantilEJuvenil],
+                backgroundColor: ["rgba(0, 0, 128, 1)"],
+              },
+              {
+                label: labels[14],
+                data: [drama],
+                backgroundColor: ["rgba(255, 255, 0, 1)"],
+              },
+              {
+                label: labels[15],
+                data: [comedia],
+                backgroundColor: ["rgba(128, 128, 0, 1)"],
+              },
+              {
+                label: labels[16],
+                data: [ensaio],
+                backgroundColor: ["rgba(255, 192, 203, 1)"],
+              },
+              {
+                label: labels[17],
+                data: [cronica],
+                backgroundColor: ["rgba(30, 144, 255, 1)"],
+              },
+              {
+                label: labels[18],
+                data: [guiasDeViagem],
+                backgroundColor: ["rgba(60, 179, 113, 1)"],
+              },
+              {
+                label: labels[19],
+                data: [LivosDeAutoAjuda],
+                backgroundColor: ["rgba(128, 0, 0, 1)"],
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                stepSize: 1,
+              },
+            },
+          },
+        });
+        return modelBibliotecaUsuario.getDados();
+      })
+      .then(function ([
+        ficcaoCientificaUsuario,
+        romanceUsuario,
+        suspenseUsuario,
+        terrorUsuario,
+        aventuraUsuario,
+        crimeEmisterioUsuario,
+        historiaUsuario,
+        biografiaUsuario,
+        autobiografiaUsuario,
+        poesiaUsuario,
+        contosUsuario,
+        fantasiaUsuario,
+        mitologiaUsuario,
+        literaturaInfantilEJuvenilUsuario,
+        dramaUsuario,
+        comediaUsuario,
+        ensaioUsuario,
+        cronicaUsuario,
+        guiasDeViagemUsuario,
+        LivosDeAutoAjudaUsuario,
+      ]) {
+        // Processar os dados obtidos e criar o gráfico
+        const labels = [
+          "Ficção científica",
+          "Romance",
+          "Suspense",
+          "Terror",
+          "Aventura",
+          "Crime e Mistério",
+          "História",
+          "Biografia",
+          "Autobiografia",
+          "Poesia",
+          "Contos",
+          "Fantasia",
+          "Mitologia",
+          "Literatura Infantil e Juvenil",
+          "Drama",
+          "Comédia",
+          "Ensaio",
+          "Crônica",
+          "Guias de Viagem",
+          "Livros de autoajuda e desenvolvimento pessoal",
+        ];
+        const dados = [
+          ficcaoCientificaUsuario,
+          romanceUsuario,
+          suspenseUsuario,
+          terrorUsuario,
+          aventuraUsuario,
+          crimeEmisterioUsuario,
+          historiaUsuario,
+          biografiaUsuario,
+          autobiografiaUsuario,
+          poesiaUsuario,
+          contosUsuario,
+          fantasiaUsuario,
+          mitologiaUsuario,
+          literaturaInfantilEJuvenilUsuario,
+          dramaUsuario,
+          comediaUsuario,
+          ensaioUsuario,
+          cronicaUsuario,
+          guiasDeViagemUsuario,
+          LivosDeAutoAjudaUsuario,
+        ];
+
+        const graficoBiblioteca = new Chart(rtx, {
+          type: "bar",
+          data: {
+            labels: ["Gênero dos livros na sua Biblioteca"],
+            datasets: [
+              {
+                label: labels[0],
+                data: [ficcaoCientificaUsuario],
+                backgroundColor: ["rgba(184, 134, 11, 1)"],
+              },
+              {
+                label: labels[1],
+                data: [romanceUsuario],
+                backgroundColor: ["rgba(205, 92, 92, 1)"],
+              },
+              {
+                label: labels[2],
+                data: [suspenseUsuario],
+                backgroundColor: ["rgba(255, 165, 0, 1)"],
+              },
+              {
+                label: labels[3],
+                data: [terrorUsuario],
+                backgroundColor: ["rgba(135, 206, 250, 1)"],
+              },
+              {
+                label: labels[4],
+                data: [aventuraUsuario],
+                backgroundColor: ["rgba(50, 205, 50, 1)"],
+              },
+              {
+                label: labels[5],
+                data: [crimeEmisterioUsuario],
+                backgroundColor: ["rgba(147, 112, 219, 1)"],
+              },
+              {
+                label: labels[6],
+                data: [historiaUsuario],
+                backgroundColor: ["rgba(218, 165, 32, 1)"],
+              },
+              {
+                label: labels[7],
+                data: [biografiaUsuario],
+                backgroundColor: ["rgba(70, 130, 180, 1)"],
+              },
+              {
+                label: labels[8],
+                data: [autobiografiaUsuario],
+                backgroundColor: ["rgba(240, 230, 140, 1)"],
+              },
+              {
+                label: labels[9],
+                data: [poesiaUsuario],
+                backgroundColor: ["rgba(128, 0, 128, 1)"],
+              },
+              {
+                label: labels[10],
+                data: [contosUsuario],
+                backgroundColor: ["rgba(0, 255, 255, 1)"],
+              },
+              {
+                label: labels[11],
+                data: [fantasiaUsuario],
+                backgroundColor: ["rgba(255, 0, 0, 1)"],
+              },
+              {
+                label: labels[12],
+                data: [mitologiaUsuario],
+                backgroundColor: ["rgba(240, 128, 128, 1)"],
+              },
+              {
+                label: labels[13],
+                data: [literaturaInfantilEJuvenilUsuario],
+                backgroundColor: ["rgba(0, 0, 128, 1)"],
+              },
+              {
+                label: labels[14],
+                data: [dramaUsuario],
+                backgroundColor: ["rgba(255, 255, 0, 1)"],
+              },
+              {
+                label: labels[15],
+                data: [comediaUsuario],
+                backgroundColor: ["rgba(128, 128, 0, 1)"],
+              },
+              {
+                label: labels[16],
+                data: [ensaioUsuario],
+                backgroundColor: ["rgba(255, 192, 203, 1)"],
+              },
+              {
+                label: labels[17],
+                data: [cronicaUsuario],
+                backgroundColor: ["rgba(30, 144, 255, 1)"],
+              },
+              {
+                label: labels[18],
+                data: [guiasDeViagemUsuario],
+                backgroundColor: ["rgba(60, 179, 113, 1)"],
+              },
+              {
+                label: labels[19],
+                data: [LivosDeAutoAjudaUsuario],
+                backgroundColor: ["rgba(128, 0, 0, 1)"],
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                stepSize: 1,
+              },
+            },
+          },
+        });
+      });
+  }
 </script>

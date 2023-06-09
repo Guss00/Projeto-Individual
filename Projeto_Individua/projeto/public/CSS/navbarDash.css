@@ -1,13 +1,15 @@
 * {
-          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body{
     margin: 0;
     padding: 0;
-          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+a, button{
+    cursor: pointer;
 }
 
 .header {
@@ -54,16 +56,26 @@ body{
 
 .navbar li,
 .navbar a {
-          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFA500;
     text-decoration: none;
     margin-left: -5rem;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#b_usuario {
+    border-bottom: 0.1rem solid #FFFFFF;
 }
 
 .navbar ul{
     padding: 0;
+}
+
+.navbar{
+    margin-left: -25rem;
 }
 
 /* Footer */

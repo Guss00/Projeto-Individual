@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Página Inicial</title>
 
-    <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/dashboards.css" />
-    <!-- <script src="../js/funcoes.js"></script> -->
+    <link rel="stylesheet" href="../CSS/dasboard.css" />
+    <link rel="stylesheet" href="../CSS/navbarDash.css">
+
+    <link rel="icon" type="image/png" href="../assests/img/imagenloginho.png"/>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -18,55 +19,51 @@
         rel="stylesheet">
 </head>
 
-<body onload="listarInfosDeUm()" style="background-color: #161618;">
-    <!-- <body onload="validarSessao()"> -->
-
-    <div class="janela">
-
-
-        <div class="header-left">
-
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-              <a href="comunidade.html">
-                <h3>Comunidade</h3>
-              </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-              <a href="biblioteca.html">
-                <h3>Biblioteca Virtual</h3>
-              </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+<body>
+  <div class="dash-right">
+    <div class="header">
+      <div class="container">
+        <div class="titulo">
+          <img src="../assests/img/Logo.jpeg" alt="" />
         </div>
+        <ul class="navbar">
+          <li>
+            <a href="dashboard.html" style="margin-left: -25rem">Dashboard</a>
+          </li>
+          <li>
+            <a href="comunidade.html" style="margin-left: -20rem"
+              >Comunidade</a
+            >
+          </li>
+          <li style="margin-left: -15rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            </svg> Usuario&nbsp; <span id="b_usuario">usuário</span>
+          </li>
+          <li style="margin-right: -8rem">
+            <a onclick="Sair()">Sair&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+              <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+            </svg></a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-        <div class="dash-right">
-
+    <div class="ajudinha"></div>
+    
             <div class="avisos">
                 <div class="container">
-                    <h1>Editar um aviso</h1>
-                    <div class="div-form">
+                  <div class="div-form">
+                      <h1>Editar o Livro</h1>
                         <label>
-                            Título:
+                            <span>Título:</span>
                             <br>
-                            <input id="input_titulo" maxlength="100" type="text" style="color: rgb(196, 196, 196)">
+                            <input id="input_titulo" maxlength="100" type="text" style="color: rgb(0, 0, 0)">
                         </label>
+                        <label>
+                        <span>Gênero do Livro:</span>
+                        <br>
                         <select name="genero" id="genero">
                             <option value="null">Nenhum</option>
                             <option value="Ficção científica">Ficção científica</option>
@@ -94,13 +91,17 @@
                               Livros de autoajuda e desenvolvimento pessoal
                             </option>
                           </select>
+                        </label>
                         <br>
-                        <button onclick="editar()">Editar</button>
+                        <button onclick="editar()">Editar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                          <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                        </svg></button>
+                        <button><a href="biblioteca.html">Cancelar</a></button>
                     </div>
+
 
                 </div>
             </div>
-        </div>
     </div>
 </body>
 
@@ -109,10 +110,6 @@
 <script>
 
 input_titulo.value = sessionStorage.getItem("ID_POSTAGEM_EDITANDO")
-
-    function listarInfosDeUm() {
-        console.log("Criar função de trazer informações de post escolhido");
-    }
 
     function limparSessao() {
     // aguardar();

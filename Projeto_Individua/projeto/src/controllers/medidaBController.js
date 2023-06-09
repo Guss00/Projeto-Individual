@@ -253,6 +253,281 @@ function LivosDeAutoAjuda(req, res) {
     });
 }
 
+// Dados do Usuario --------------------------------------------------------------------------------------------
+
+function ficcaoCientificaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .ficcaoCientificaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade total de postagens:", error);
+      res.sendStatus(500);
+    });
+}
+
+function romanceUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .romanceUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens críticas:", error);
+      res.sendStatus(500);
+    });
+}
+
+function suspenseUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .suspenseUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log(
+        "Erro ao  a quantidade de postagens de recomendação:",
+        error
+      );
+      res.sendStatus(500);
+    });
+}
+
+function terrorUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .terrorUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens de outros:", error);
+      res.sendStatus(500);
+    });
+}
+
+function aventuraUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .aventuraUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade total de postagens:", error);
+      res.sendStatus(500);
+    });
+}
+
+function crimeEmisterioUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .crimeEmisterioUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens críticas:", error);
+      res.sendStatus(500);
+    });
+}
+
+function historiaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .historiaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log(
+        "Erro ao  a quantidade de postagens de recomendação:",
+        error
+      );
+      res.sendStatus(500);
+    });
+}
+
+function biografiaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .biografiaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens de outros:", error);
+      res.sendStatus(500);
+    });
+}
+function autobiografiaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .autobiografiaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade total de postagens:", error);
+      res.sendStatus(500);
+    });
+}
+
+function poesiaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .poesiaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens críticas:", error);
+      res.sendStatus(500);
+    });
+}
+
+function contosUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .contosUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log(
+        "Erro ao  a quantidade de postagens de recomendação:",
+        error
+      );
+      res.sendStatus(500);
+    });
+}
+
+function fantasiaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .fantasiaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens de outros:", error);
+      res.sendStatus(500);
+    });
+}
+
+function mitologiaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .mitologiaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade total de postagens:", error);
+      res.sendStatus(500);
+    });
+}
+
+function literaturaInfantilEJuvenilUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .literaturaInfantilEJuvenilUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade total de postagens:", error);
+      res.sendStatus(500);
+    });
+}
+
+function dramaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .dramaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens críticas:", error);
+      res.sendStatus(500);
+    });
+}
+
+function comediaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .comediaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log(
+        "Erro ao  a quantidade de postagens de recomendação:",
+        error
+      );
+      res.sendStatus(500);
+    });
+}
+
+function ensaioUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .ensaioUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens de outros:", error);
+      res.sendStatus(500);
+    });
+}
+function cronicaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .cronicaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade total de postagens:", error);
+      res.sendStatus(500);
+    });
+}
+
+function guiasDeViagemUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .guiasDeViagemUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log("Erro ao  a quantidade de postagens críticas:", error);
+      res.sendStatus(500);
+    });
+}
+
+function LivosDeAutoAjudaUsuario(req, res) {
+  var fkUsuario = req.body.idUsuario;
+  medidaBModel
+    .LivosDeAutoAjudaUsuario(fkUsuario)
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((error) => {
+      console.log(
+        "Erro ao  a quantidade de postagens de recomendação:",
+        error
+      );
+      res.sendStatus(500);
+    });
+} 
+
 module.exports = {
   ficcaoCientifica,
   romance,
@@ -274,4 +549,25 @@ module.exports = {
   cronica,
   guiasDeViagem,
   LivosDeAutoAjuda,
+
+  ficcaoCientificaUsuario,
+  romanceUsuario,
+  suspenseUsuario,
+  terrorUsuario,
+  aventuraUsuario,
+  crimeEmisterioUsuario,
+  historiaUsuario,
+  biografiaUsuario,
+  autobiografiaUsuario,
+  poesiaUsuario,
+  contosUsuario,
+  fantasiaUsuario,
+  mitologiaUsuario,
+  literaturaInfantilEJuvenilUsuario,
+  dramaUsuario,
+  comediaUsuario,
+  ensaioUsuario,
+  cronicaUsuario,
+  guiasDeViagemUsuario,
+  LivosDeAutoAjudaUsuario,
 };

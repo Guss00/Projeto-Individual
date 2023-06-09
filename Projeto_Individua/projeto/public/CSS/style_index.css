@@ -1,11 +1,11 @@
 * {
-    font-family: Arial;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #FFFFFF;
 }
 
@@ -84,29 +84,24 @@ button {
     align-items: center;
 }
 
-.img {
+.imagen {
     height: 60vh;
     width: 55vh;
-    border: 1px solid black;
 }
 
-.img img{
+.imagen img{
     height: 100%;
     width: 100%;
+    border: 1px solid black;
+    border-radius: 25%;
 }
 
 .texto {
     height: auto;
     width: 90vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    font-size: 1.2rem;
-}
-
-.barrinha{
-    width: 0.3vh;
-    height: 50vh;
-    background-color: #FFA500;
+    font-size: 1.8rem;
 }
 
 /* conteudo 2 */
@@ -125,22 +120,24 @@ button {
     align-items: center;
 }
 
-.img2 {
-    height: 55vh;
-    width: 70vh;
+.imagen2 {
+    height: 60vh;
+    width: 55vh;
 }
 
-.img2 img{
+.imagen2 img{
     height: 100%;
     width: 100%;
+    border: 1px solid black;
+    border-radius: 25%;
 }
 
 .texto2 {
     height: auto;
     width: 80vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
 }
 
 /* conteudo 3 */
@@ -159,93 +156,26 @@ button {
     align-items: center;
 }
 
-.img3 {
+.imagen3 {
     height: 60vh;
-    width: 60vh;
+    width: 55vh;
 }
 
-.img3 img{
+.imagen3 img{
     height: 100%;
     width: 100%;
+    border: 1px solid black;
+    border-radius: 25%;
 }
 
 .texto3 {
     height: auto;
     width: 80vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
 }
 
-/* Conteudo 4 */
-
-.conteudo4 {
-    display: flex;
-    height: 70vh;
-    margin-top: 7vh;
-    border-top: 5px solid #FFA500;
-}
-
-.imagem4 {
-    height: 60vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.img4 {
-    height: 50vh;
-    width: 70vh;
-}
-
-.img4 img{
-    height: 100%;
-    width: 100%;
-}
-
-.texto4 {
-    height: auto;
-    width: 80vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-/* Conteudo 5 */
-
-.conteudo5 {
-    display: flex;
-    height: 70vh;
-    margin-top: 7vh;
-    border-top: 5px solid #FFA500;
-}
-
-.imagem5 {
-    height: 60vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.img5 {
-    height: 50vh;
-    width: 70vh;
-}
-
-.img5 img{
-    height: 100%;
-    width: 100%;
-}
-
-.texto5 {
-    height: auto;
-    width: 80vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
-    font-size: 1.2rem;
-}
 
 /* Os banners - texto - imagem */
 
@@ -262,7 +192,7 @@ button {
     width: 70vh;
     font-size: 2.5rem;
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .img_banner {
