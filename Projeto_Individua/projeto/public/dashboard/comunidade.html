@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AquaTech | Avisos</title>
+    <title>Letras em Ação | Comunidade</title>
 
     <link rel="stylesheet" href="../CSS/dasboard.css" />
     <link rel="stylesheet" href="../CSS/navbarDash.css">
@@ -75,7 +75,6 @@
                   <option value="Outro">Outro</option>
                   <option value="Recomendação">Recomendação</option>
                   <option value="Crítica">Crítica</option>
-                  <!-- <option value="Crítica">Crítica</option> -->
                 </select>
               </label>
               <br />
@@ -117,9 +116,7 @@
   }
 
   function Sair() {
-    // aguardar();
     sessionStorage.clear();
-    // finalizarAguardar();
     window.location = "../login.html";
   }
 
@@ -151,12 +148,9 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          window.alert(
-            "Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!"
-          );
+         
           window.location = "comunidade.html";
           limparFormulario();
-          // finalizarAguardar();
         } else if (resposta.status == 404) {
           window.alert("Deu 404!");
         } else {
@@ -168,7 +162,6 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
       });
 
     return false;
@@ -180,7 +173,6 @@
   function editar(idPostagem, nome_completo) {
     var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
-    // Verificar se o usuário é o autor da postagem
     if (
       idUsuario ==
       sessionStorage.getItem(
@@ -233,7 +225,6 @@
   }
 
   function atualizarFeed() {
-    //aguardar();
     fetch("/avisos/listar")
       .then(function (resposta) {
         if (resposta.ok) {
@@ -256,7 +247,6 @@
 
               sessionStorage.ID_USUARIO_POSTAGEM = publicacao.fkUsuario;
 
-              // criando e manipulando elementos do HTML via JavaScript
               var divPublicacao = document.createElement("div");
               var spanidUsuario = document.createElement("span");
               var spanTipo = document.createElement("span");
@@ -264,10 +254,6 @@
               var spanNome = document.createElement("span");
               var divDescricao = document.createElement("div");
               var divButtons = document.createElement("div");
-              // var btnEditar = document.createElement("button");
-              // var btnDeletar = document.createElement("button");
-
-              // spanidUsuario.innerHTML = "Autor: " = publicacao.fkUsuario + "<br>";
               spanNome.innerHTML =
                 "Autor: <b>" + publicacao.nome_completo + "</b>";
               spanTitulo.innerHTML =
@@ -276,8 +262,6 @@
                 "Tipo da Publição: <b>" + publicacao.tipo + "</b>";
               divDescricao.innerHTML =
                 "Descrição: <b>" + publicacao.descricao + "</b>";
-              // btnEditar.innerHTML = "Editar";
-              // btnDeletar.innerHTML = "Deletar";
 
               divPublicacao.className = "publicacao";
               spanTitulo.idPostagem = "inputNumero" + publicacao.idPostagem;
@@ -287,26 +271,14 @@
 
               divButtons.className = "div-buttons";
 
-              // btnEditar.className = "publicacao-btn-editar"
-              // btnEditar.idPostagem = "btnEditar" + publicacao.idPostagem;
-              // btnEditar.setAttribute("onclick", `editar(${publicacao.idPostagem})`);
-
-              // btnDeletar.className = "publicacao-btn-editar"
-              // btnDeletar.idPostagem = "btnDeletar" + publicacao.idPostagem;
-              // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idPostagem})`);
-
-              // divPublicacao.appendChild(spanidUsuario);
               divPublicacao.appendChild(spanNome);
               divPublicacao.appendChild(spanTitulo);
               divPublicacao.appendChild(spanTipo);
               divPublicacao.appendChild(divDescricao);
               divPublicacao.appendChild(divButtons);
-              // divButtons.appendChild(btnEditar);
-              // divButtons.appendChild(btnDeletar);
               feed.appendChild(divPublicacao);
             }
 
-            // finalizarAguardar();
           });
         } else {
           throw "Houve um erro na API!";
@@ -314,26 +286,6 @@
       })
       .catch(function (resposta) {
         console.error(resposta);
-        // finalizarAguardar();
       });
-  }
-
-  function testar() {
-    // aguardar();
-
-    var formulario = new URLSearchParams(
-      new FormData(document.getElementById("form_postagem"))
-    );
-
-    var divResultado = document.getElementById("div_feed");
-
-    divResultado.appendChild(
-      document.createTextNode(formulario.get("descricao"))
-    );
-    divResultado.innerHTML = formulario.get("descricao");
-
-    // finalizarAguardar();
-
-    return false;
   }
 </script>

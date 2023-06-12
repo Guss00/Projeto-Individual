@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="../assests/img/imagenloginho.png" />
+
+    <link rel="stylesheet" href="../CSS/navbarDash.css">
+    <link rel="stylesheet" href="../CSS/informativa.css">
+
+    <title>Letras em Ação | Página Informativa</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="titulo">
+                <img src="../assests/img/Logo.jpeg" alt="" />
+            </div>
+            <ul class="navbar">
+                <li>
+                    <a href="biblioteca.html" style="margin-left: -30rem">Biblioteca</a>
+                </li>
+                <li>
+                    <a href="comunidade.html" style="margin-left: -25rem">Comunidade</a>
+                </li>
+                <li>
+                    <a href="dashboard.html" style="margin-left: -20rem">Dashboard</a>
+                </li>
+                <li style="margin-left: -15rem">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                    </svg> Usuario&nbsp; <span id="b_usuario">usuário</span>
+                </li>
+                <li style="margin-right: -5rem">
+                    <a onclick="Sair()">Sair&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                            fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+                            <path fill-rule="evenodd"
+                                d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                        </svg></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ajuda"></div>
+
+    <div class="introducao">
+        <div class="container">
+            <span>
+                blablablablablablabl
+            </span>
+        </div>
+    </div>
+
+    <div class="biblioteca">
+        <div class="container">
+            <img src="" alt="">
+            <span>
+                blablablablalbalbal
+            </span>
+        </div>
+        <button>Clique Aqui!</button>
+    </div>
+
+    <div class="Comunidade">
+        <div class="container">
+            <img src="" alt="">
+            <span>
+                blablablablalbalbal
+            </span>
+        </div>
+        <button>Clique Aqui!</button>
+    </div>
+
+    <div class="Dashboard">
+        <div class="container">
+            <img src="" alt="">
+            <span>
+                blablablablalbalbal
+            </span>
+        </div>
+        <button>Clique Aqui!</button>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="titulo">
+                <img src="../assests/img/Logo.jpeg" alt="">
+            </div>
+            <h4>
+                Um livro é uma janela pela qual você pode espiar outros mundos.
+            </h4>
+            <small> Mary Poppins </small>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function Sair() {
+        sessionStorage.clear();
+        window.location = "../login.html";
+    }
+
+</script>

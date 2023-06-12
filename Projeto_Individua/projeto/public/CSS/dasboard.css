@@ -447,3 +447,10 @@ svg{
     color: #FFFFFF;
   }
   
+  .btn .btn-success button{
+    background-color: green;
+  }
+
+  .btn .btn-danger button{
+    background-color: red;
+  }

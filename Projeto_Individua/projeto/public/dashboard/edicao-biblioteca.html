@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Página Inicial</title>
+    <title>Letras em Ação | Edição do Livro</title>
 
     <link rel="stylesheet" href="../CSS/dasboard.css" />
     <link rel="stylesheet" href="../CSS/navbarDash.css">
@@ -111,15 +111,12 @@
 
 input_titulo.value = sessionStorage.getItem("ID_POSTAGEM_EDITANDO")
 
-    function limparSessao() {
-    // aguardar();
+    function Sair() {
     sessionStorage.clear();
-    // finalizarAguardar();
-    window.location.href = "http://localhost:3333/login.html";
+    window.location = "../login.html";
   }
 
     function editar() {
-  // var nome = sessionStorage.getItem("ID_POSTAGEM_EDITANDO");
   var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
   fetch(`/biblioteca/editar/${idUsuario}`, {
@@ -135,14 +132,8 @@ input_titulo.value = sessionStorage.getItem("ID_POSTAGEM_EDITANDO")
   })
     .then(function (resposta) {
       if (resposta.ok) {
-        window.alert(
-          "Post atualizado com sucesso pelo usuário de email: " +
-            sessionStorage.getItem("EMAIL_USUARIO") +
-            "!"
-        );
         window.location = "biblioteca.html";
       } else if (resposta.status == 404) {
-        window.alert("Deu 404!");
       } else {
         throw (
           "Houve um erro ao tentar atualizar a postagem! Código da resposta: " +

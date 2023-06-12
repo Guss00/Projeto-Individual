@@ -1,0 +1,140 @@
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+  margin: 0;
+  padding: 0;      
+}
+
+button, a{
+    cursor: pointer;
+}
+
+.ajuda{
+    background-color: blueviolet;
+    height: 12rem;
+    width: 100%;
+}
+
+.container{
+    margin: auto;
+    display: flex;
+    width: 90%;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Conteudo */
+
+.introducao{
+    background-color: aquamarine;
+    width: 100%;
+    height: 35rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introducao span{
+    font-size: 1.4rem;
+}
+
+.biblioteca{
+    background-color: red;
+    width: 100%;
+    height: 35rem;
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.biblioteca img{
+    background-color: beige;
+    width: 30rem;
+    height: 30rem;
+    border: 1px solid black;
+    border-radius: 1.2rem;
+}
+
+.biblioteca span{
+    background-color:chocolate;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+button{
+    background-color: blue;
+    width: 10rem;
+    height: 4rem;
+    border: none;
+    border-radius: 0.8rem;
+    margin-top: 25rem;
+    margin-right: 5rem;
+}
+
+.Comunidade{
+    background-color: brown;
+    width: 100%;
+    height: 35rem;
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.Comunidade img{
+    background-color: beige;
+    width: 30rem;
+    height: 30rem;
+    border: 1px solid black;
+    border-radius: 1.2rem;
+}
+
+.Comunidade span{
+    background-color:chocolate;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.Dashboard{
+    background-color: greenyellow;
+    width: 100%;
+    height: 35rem;
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.Dashboard img{
+    background-color: beige;
+    width: 30rem;
+    height: 30rem;
+    border: 1px solid black;
+    border-radius: 1.2rem;
+}
+
+.Dashboard span{
+    background-color:chocolate;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    
+}

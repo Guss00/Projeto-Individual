@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Banner */
@@ -39,6 +40,11 @@ body {
     border-left: 6px solid #FFA500;
 }
 
+.foto img{
+    height: 100%;
+    width: 100%;
+}
+
 .sobreMim{
     background-color: darkslateblue;
     height: 41rem;
@@ -52,8 +58,9 @@ body {
     width: 30rem;
     margin-top: -35rem;
     margin-left: 6rem;
+    font-size: 2rem;
+    
 }
-
 
 .apresentacao{
     background-color: chartreuse;
@@ -86,10 +93,19 @@ body {
 /* Valores  ---------------------------------------------------------------------------------------------------------------------------------*/
 .valores {
     background-color: blueviolet;
-    height: 35rem;
+    height: 45rem;
     width: 100%;
     display: flex;
     margin-bottom: 5rem;
+    justify-content: center;
+}
+
+.tituloValores{
+    display: flex;
+    justify-content: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    border-bottom: 0.3rem solid #000;
 }
 
 .container {
@@ -99,10 +115,15 @@ body {
     justify-content: space-between;
 }
 
+.container h2{
+    margin-top: -5rem;
+    margin-bottom: 3rem;
+}
+
 /* Primeiro Valor */
 .valor1 {
     background-color: coral;
-    height: 28rem;
+    height: 35rem;
     width: 22rem;
     border: 3px solid #FFA500;
     border-radius: 0.5rem;
@@ -117,18 +138,23 @@ body {
     height: 10rem;
     width: 10rem;
     margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
 }
 
 .valor1 span{
     background-color: blue;
     height: 20rem;
     width: 100%;
+    font-size: 1.2rem;
 }
 
 /* Segundo Valor */
 .valor2 {
     background-color: red;
-    height: 28rem;
+    height: 35rem;
     width: 22rem;
     border: 3px solid #FFA500;
     border-radius: 1rem;
@@ -143,18 +169,22 @@ body {
     height: 10rem;
     width: 10rem;
     margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    margin-top: -2rem;
 }
 
 .valor2 span{
     background-color: blue;
     height: 20rem;
     width: 100%;
+    font-size: 1.2rem;
 }
 
 /* Terceiro Valor */
 .valor3 {
     background-color: brown;
-    height: 28rem;
+    height: 35rem;
     width: 22rem;
     border: 3px solid #FFA500;
     border-radius: 1rem;
@@ -169,12 +199,15 @@ body {
     height: 10rem;
     width: 10rem;
     margin-bottom: 1rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
 }
 
 .valor3 span{
     background-color: blue;
     height: 20rem;
     width: 100%;
+    font-size: 1.2rem;
 }
 
 /* Conteudo da pagina -------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -184,49 +217,77 @@ body {
     width: 100%;
     margin-bottom: 5rem;
     display: flex;
+    border-top: 0.3rem solid #FFA500;
 }
 
 /* Primeiro conteudo */
 .imagem{
-    background-color: darkorange;
-    height: 35rem;
-    width: 35rem;
-    border-radius: 1rem;
+    height: 60vh;
+    width: 55vh;
+}
+
+.imagem img{
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 25%;
 }
 
 .texto{
     background-color: darkgreen;
-    height: 25rem;
+    height: auto;
     width: 60rem;
     border-radius: 1rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Segundo Conteudo */
 .imagem2{
-    background-color: darkorange;
-    height: 35rem;
-    width: 35rem;
-    border-radius: 1rem;
+    height: 60vh;
+    width: 55vh;
+}
+
+.imagem2 img{
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 25%;
 }
 
 .texto2{
     background-color: darkgreen;
-    height: 25rem;
+    height: auto;
     width: 60rem;
     border-radius: 1rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Terceiro Conteudo */
 .imagem3{
-    background-color: darkorange;
-    height: 35rem;
-    width: 35rem;
-    border-radius: 1rem;
+    height: 60vh;
+    width: 55vh;
+}
+
+.imagem3 img{
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 25%;
 }
 
 .texto3{
     background-color: darkgreen;
-    height: 25rem;
+    height: auto;
     width: 60rem; 
     border-radius: 1rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
