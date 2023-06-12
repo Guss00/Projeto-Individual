@@ -227,6 +227,11 @@ const Toast = Swal.mixin({
 
             if (resposta.ok) {
 
+                Toast.fire({
+              icon: "success",
+              title: "Cadastrado realizado com sucesso!",
+            });
+
                 setTimeout(() => {
                     window.location = "/login.html";
                 }, "2000")

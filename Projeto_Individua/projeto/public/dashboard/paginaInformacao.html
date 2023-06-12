@@ -22,6 +22,9 @@
             </div>
             <ul class="navbar">
                 <li>
+                    <a href="paginaInformacao.html" style="margin-left: -35rem">Informações</a>
+                </li>
+                <li>
                     <a href="biblioteca.html" style="margin-left: -30rem">Biblioteca</a>
                 </li>
                 <li>
@@ -54,16 +57,19 @@
     <div class="introducao">
         <div class="container">
             <span>
-                blablablablablablabl
+                Parabéns por se cadastrar! 
+                <br>
+                <br>
+                Seja muito bem-vindo à página informativa do Letras em Ação. Como usuário, você agora tem acesso à Biblioteca, Comunidade e Dashboard. A Biblioteca Virtual permite que você armazene seus livros favoritos. Na Comunidade, você pode compartilhar suas opiniões com outros usuários e também visualizar as opiniões deles. A Dashboard oferece uma visualização mais explicativa das informações por meio de números.
             </span>
         </div>
     </div>
 
     <div class="biblioteca">
         <div class="container">
-            <img src="" alt="">
+            <img src="../assests/img/biblioteca.png" alt="">
             <span>
-                blablablablalbalbal
+                A Biblioteca Virtual é o local perfeito para armazenar e organizar os livros que deseja ou pretende ler. É um espaço exclusivo para cada usuário, garantindo que apenas você tenha acesso à sua biblioteca. Além disso, a Biblioteca Virtual oferece recursos que permitem editar e excluir os livros conforme necessário.
             </span>
         </div>
         <button>Clique Aqui!</button>
@@ -71,9 +77,9 @@
 
     <div class="Comunidade">
         <div class="container">
-            <img src="" alt="">
+            <img src="../assests/img/Comunidade.png" alt="">
             <span>
-                blablablablalbalbal
+                A Comunidade é um espaço para você compartilhar suas opiniões e recomendações, além de visualizar as publicações de outros usuários. É um ambiente interativo onde você pode trocar ideias e descobrir novas perspectivas.
             </span>
         </div>
         <button>Clique Aqui!</button>
@@ -81,9 +87,9 @@
 
     <div class="Dashboard">
         <div class="container">
-            <img src="" alt="">
+            <img src="../assests/img/dashboard.png" alt="">
             <span>
-                blablablablalbalbal
+                A Dashboard é o local onde você pode ter uma visão clara dos dados por meio de números e gráficos. Ela apresenta uma porcentagem detalhada sobre os diferentes tipos de publicações na Comunidade, bem como gráficos abrangentes sobre a Comunidade e a Biblioteca, fornecendo informações gerais e específicas do usuário para uma visualização mais detalhada e completa.
             </span>
         </div>
         <button>Clique Aqui!</button>
@@ -106,6 +112,8 @@
 </html>
 
 <script>
+
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function Sair() {
         sessionStorage.clear();

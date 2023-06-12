@@ -24,7 +24,7 @@ svg{
 /* Graficos Comunidade Geral */
 
 .graficosComunidade {
-    background-color: aquamarine;
+    background-color: #ffffff;
     width: 100%;
     height: 40rem;
     display: flex;
@@ -35,7 +35,7 @@ svg{
 }
 
 .graficosComunidadeGeral{
-    background-color: blue;
+    background-color: rgb(62, 58, 58);
     height: 30rem;
     width: 50rem;
     display: flex;
@@ -43,13 +43,14 @@ svg{
     align-items: center;
     border: 0.4rem solid #FFA500;
     border-radius: 0.8rem;
+    color: #FFFFFF;
 }
 
 .graficosComunidadeGeral section{
-    background-color: antiquewhite;
+    background-color: #FFFFFF;
     width: 100%;
     height: 100%;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
 }
 
 .graficosComunidadeGeral section canvas{
@@ -60,7 +61,7 @@ svg{
 /* Graficos Comunidade Usuario */
 
 .graficoComunidadeUsuario{
-    background-color: blue;
+    background-color: rgb(62, 58, 58);
     height: 30rem;
     width: 50rem;
     display: flex;
@@ -68,13 +69,14 @@ svg{
     align-items: center;
     border: 0.4rem solid #FFA500;
     border-radius: 0.8rem;
+    color: #FFFFFF;
 }
 
 .graficoComunidadeUsuario section{
-    background-color: antiquewhite;
+    background-color: #FFFFFF;
     width: 100%;
     height: 100%;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
 }
 
 .graficoComunidadeUsuario section canvas{
@@ -85,7 +87,7 @@ svg{
 /* Graficos Biblioteca Geral */
 
 .graficosBiblioteca{
-    background-color: darkgreen;
+    background-color: #FFFFFF;
     width: 100%;
     height: 40rem;
     display: flex;
@@ -95,7 +97,7 @@ svg{
 }
 
 .graficoBibliotecaGeral{
-    background-color: darksalmon;
+    background-color: rgb(62, 58, 58);
     height: 30rem;
     width: 50rem;
     display: flex;
@@ -103,10 +105,11 @@ svg{
     align-items: center;
     border: 0.4rem solid #FFA500;
     border-radius: 0.8rem;
+    color: #FFFFFF;
 }
 
 .graficoBibliotecaGeral section{
-    background-color: cornflowerblue;
+    background-color: #FFFFFF;
     width: 100%;
     height: 100%;
     border-radius: 0.8rem;
@@ -120,7 +123,7 @@ svg{
 /* Grafico Biblioteca Usuario */
 
 .graficoBibliotecausuario{
-    background-color: darksalmon;
+    background-color: rgb(62, 58, 58);
     height: 30rem;
     width: 50rem;
     display: flex;
@@ -128,10 +131,11 @@ svg{
     align-items: center;
     border: 0.4rem solid #FFA500;
     border-radius: 0.8rem;
+    color: #FFFFFF;
 }
 
 .graficoBibliotecausuario section{
-    background-color: cornflowerblue;
+    background-color: #FFFFFF;
     width: 100%;
     height: 100%;
     border-radius: 0.8rem;
@@ -145,7 +149,7 @@ svg{
 /* Cards Com A Porcentagem */
 
 .blocos{
-    background-color: darkviolet;
+    background-color: #ffffff;
     width: 100%;
     height: 30rem;
     display: flex;
@@ -156,7 +160,7 @@ svg{
 }
 
 .bloco1{
-    background-color: cadetblue;
+    background-color: rgb(62, 58, 58);
     width: 25rem;
     height: 25rem;
     border: 0.5rem solid #FFA500;
@@ -167,10 +171,11 @@ svg{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: #FFFFFF;
 }
 
 .bloco2{
-    background-color: deeppink;
+    background-color: rgb(62, 58, 58);
     width: 25rem;
     height: 25rem;
     border: 0.5rem solid #FFA500;
@@ -181,10 +186,11 @@ svg{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: #FFFFFF;
 }
 
 .bloco3{
-    background-color: gold;
+    background-color: rgb(62, 58, 58);
     width: 25rem;
     height: 25rem;
     border: 0.5rem solid #FFA500;
@@ -195,6 +201,7 @@ svg{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: #FFFFFF;
 }
 
 .blocos span{
@@ -204,13 +211,14 @@ svg{
 
 
 .parteDosBlocos{
-    background-color: aqua;
+    background-color: rgb(62, 58, 58);
     width: 100%;
     height: 55rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #FFFFFF;
 }
 
 .tituloPorcentagem{
